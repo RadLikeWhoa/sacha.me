@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+
+const {
+  id,
+  data: { title, teaser },
+} = article;
+---
+
+<article>
+  <h1>
+    <a
+      href={`/articles/${id}`}
+      data-astro-prefetch
+    >
+      {title}
+    </a>
+  </h1>
+  <p>{teaser}</p>
+</article>

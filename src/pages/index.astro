@@ -1,4 +1,5 @@
 ---
+import ArticleTeaser from '@/components/ArticleTeaser.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -15,5 +16,18 @@ const article = (await getCollection('articles'))
     </p>
   </section>
   <!-- Projects -->
-  <!-- Articles -->
+  {
+    article && (
+      <section>
+        <h1>Latest article</h1>
+        <ArticleTeaser article={article} />
+        <a
+          href="/articles"
+          data-astro-prefetch
+        >
+          Read more articles
+        </a>
+      </section>
+    )
+  }
 </Layout>

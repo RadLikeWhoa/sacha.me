@@ -14,9 +14,29 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'articles'>;
 
 const article = Astro.props;
+const { title, date } = article.data;
 const { Content } = await render(article);
 ---
 
-<Article {...article.data}>
-  <Content />
+<Article title={title}>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <time>{date}</time>
+    </header>
+    <Content />
+    <footer>
+      <p>
+        For comments and questions, <a href="mailto:hello@sacha.me">
+          contact me through e-mail
+        </a>.
+      </p>
+      <a
+        href="/articles"
+        data-astro-prefetch
+      >
+        View more articles
+      </a>
+    </footer>
+  </article>
 </Article>
