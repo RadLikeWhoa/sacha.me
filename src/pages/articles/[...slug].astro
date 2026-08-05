@@ -1,5 +1,5 @@
 ---
-import Article from '@/layouts/Article.astro';
+import Layout from '@/layouts/Layout.astro';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -18,7 +18,7 @@ const { title, date } = article.data;
 const { Content } = await render(article);
 ---
 
-<Article title={title}>
+<Layout title={title}>
   <article>
     <header>
       <h1>{title}</h1>
@@ -39,4 +39,4 @@ const { Content } = await render(article);
       </a>
     </footer>
   </article>
-</Article>
+</Layout>

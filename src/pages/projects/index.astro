@@ -1,4 +1,5 @@
 ---
+import ProjectTeaser from '@/components/ProjectTeaser.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -8,5 +9,7 @@ const projects = (await getCollection('projects')).sort(
 ---
 
 <Layout title="Projects">
-  <!-- Projects -->
+  <section>
+    {projects.map((project) => <ProjectTeaser project={project} />)}
+  </section>
 </Layout>

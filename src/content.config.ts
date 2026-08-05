@@ -23,6 +23,7 @@ const projects = defineCollection({
       link: z.string().optional(),
       repo: z.string().optional(),
       teaser: z.string(),
+      end: z.number().optional(),
       hero: image(),
       icon: image(),
     }),

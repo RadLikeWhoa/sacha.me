@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+
+const {
+  id,
+  data: { title, teaser, tags, date },
+} = project;
+---
+
+<article>
+  <h1>
+    <a
+      href={`/projects/${id}`}
+      data-astro-prefetch
+    >
+      {title}
+    </a>
+  </h1>
+  <p>{date.toLocaleDateString('de-CH', { year: 'numeric' })} – {teaser}</p>
+  <ul>
+    {tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+</article>

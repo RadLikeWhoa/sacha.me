@@ -1,5 +1,5 @@
 ---
-import Project from '@/layouts/Project.astro';
+import Layout from '@/layouts/Layout.astro';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -15,8 +15,82 @@ type Props = CollectionEntry<'projects'>;
 
 const project = Astro.props;
 const { Content } = await render(project);
+
+const { date, title, teaser, repo, link, tags, tasks, technologies, end } =
+  project.data;
 ---
 
-<Project {...project.data}>
-  <Content />
-</Project>
+<Layout {...project.data}>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <p>{teaser}</p>
+    </header>
+    <dl>
+      <dd>Started</dd>
+      <dt>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dt>
+      {
+        end && (
+          <>
+            <dd>Ended</dd>
+            <dt>{end}</dt>
+          </>
+        )
+      }
+      {
+        repo && (
+          <>
+            <dd>Repository</dd>
+            <dt>
+              <a
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {repo}
+              </a>
+            </dt>
+          </>
+        )
+      }
+      {
+        link && (
+          <>
+            <dd>URL</dd>
+            <dt>
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link}
+              </a>
+            </dt>
+          </>
+        )
+      }
+      <dd>Tags</dd>
+      <dt>{tags.join(', ')}</dt>
+    </dl>
+    <Content />
+    <dl>
+      <dd>Tasks</dd>
+      <dt>{tasks.join(', ')}</dt>
+      <dd>Technologies</dd>
+      <dt>{technologies.join(', ')}</dt>
+    </dl>
+    <footer>
+      <p>
+        For comments and questions, <a href="mailto:hello@sacha.me">
+          contact me through e-mail
+        </a>.
+      </p>
+      <a
+        href="/projects"
+        data-astro-prefetch
+      >
+        View more projects
+      </a>
+    </footer>
+  </article>
+</Layout>
