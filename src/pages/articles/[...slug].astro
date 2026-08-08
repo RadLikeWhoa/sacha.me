@@ -47,7 +47,7 @@ const { Content } = await render(article);
         variant="secondary"
         raised
       >
-        View more articles
+        Read more articles
       </Button>
     </div>
   </section>
@@ -55,9 +55,9 @@ const { Content } = await render(article);
 
 <style>
   article {
-    max-inline-size: 70ch;
+    max-inline-size: var(--content-width);
     margin-inline: auto;
-    padding-block: 3rem;
+    padding-block: 3rem 1.5rem;
   }
 
   header {
@@ -89,7 +89,7 @@ const { Content } = await render(article);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    max-inline-size: 70ch;
+    max-inline-size: var(--content-width);
     margin-inline: auto;
     gap: 1.5rem;
 

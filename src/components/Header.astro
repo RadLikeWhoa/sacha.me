@@ -4,28 +4,27 @@ import { Image } from 'astro:assets';
 ---
 
 <header>
-  <div class="content">
-    <a
-      href="/"
-      data-astro-prefetch
-    >
-      <Image
-        src={logo}
-        alt="Logo"
-        class="logo"
-      />
-    </a>
-  </div>
+  <a
+    href="/"
+    data-astro-prefetch
+  >
+    <Image
+      src={logo}
+      alt="Logo"
+      class="logo"
+    />
+  </a>
 </header>
 
 <style>
   header {
+    max-inline-size: var(--content-width);
+    margin-inline: auto;
     padding-block-start: 3rem;
   }
 
-  .content {
-    max-inline-size: 70ch;
-    margin-inline: auto;
+  a {
+    display: inline-block;
   }
 
   img {

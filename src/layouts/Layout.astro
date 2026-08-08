@@ -1,7 +1,6 @@
 ---
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
-import { Font } from 'astro:assets';
 
 interface Props {
   title?: string;
@@ -28,14 +27,11 @@ const { title } = Astro.props;
       href="/favicon.ico"
     />
     <title>{title ? `${title} - Sacha Schmid` : 'Sacha Schmid'}</title>
-    <Font
-      cssVariable="--font-lato"
-      preload
-    />
     <style is:global>
       :root {
         --color-brand: #e95e7a;
         --color-white: #faf0e1;
+        --content-width: 75ch;
       }
 
       * {
