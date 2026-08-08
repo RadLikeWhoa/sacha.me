@@ -1,3 +1,11 @@
 {
-  "extends": ["stylelint-config-recommended", "stylelint-config-html/astro"]
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-html/astro",
+    "stylelint-config-property-sort-order-smacss"
+  ],
+  "plugins": ["stylelint-order", "stylelint-use-logical"],
+  "rules": {
+    "csstools/use-logical": "always"
+  }
 }

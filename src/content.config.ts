@@ -26,6 +26,7 @@ const projects = defineCollection({
       end: z.number().optional(),
       hero: image(),
       icon: image(),
+      background: z.string(),
     }),
 });
 

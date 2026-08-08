@@ -1,7 +1,13 @@
 ---
 import ArticleTeaser from '@/components/ArticleTeaser.astro';
+import Button from '@/components/Button.astro';
+import IconWell from '@/components/IconWell.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
 
 const article = (await getCollection('articles'))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -9,25 +15,119 @@ const article = (await getCollection('articles'))
 ---
 
 <Layout>
-  <section>
+  <section class="section-intro">
     <p>
       Hi there, my name is <b>Sacha</b> and I am a front-end developer and designer.
       I design and build websites and applications using modern technologies and methodologies.
     </p>
   </section>
-  <!-- Projects -->
+  {
+    projects && (
+      <section class="section-projects">
+        <div class="projects">
+          <ol class="projects-list">
+            {projects.map((project) => (
+              <li>
+                <IconWell
+                  title={project.data.title}
+                  path={`/projects/${project.id}`}
+                  icon={project.data.icon}
+                  background={project.data.background}
+                />
+              </li>
+            ))}
+          </ol>
+          <p>
+            This is a selection of some of my latest projects. You can read a
+            detailed case study on all of them or you can check out a list of
+            all my past and current projects.
+          </p>
+          <Button
+            href="/projects"
+            variant="secondary"
+            raised
+          >
+            Discover more projects
+          </Button>
+        </div>
+      </section>
+    )
+  }
   {
     article && (
-      <section>
-        <h1>Latest article</h1>
+      <section class="section-articles">
+        <h1 class="section-title">Latest article</h1>
         <ArticleTeaser article={article} />
-        <a
-          href="/articles"
-          data-astro-prefetch
-        >
-          Read more articles
-        </a>
+        <Button href="/articles">Read more articles</Button>
       </section>
     )
   }
 </Layout>
+
+<style>
+  .section-intro,
+  .section-articles {
+    max-inline-size: 70ch;
+    margin-inline: auto;
+    padding-block: 3rem;
+  }
+
+  .section-intro {
+    > p {
+      font-size: 1.3rem;
+      line-height: 1.54;
+    }
+  }
+
+  .section-projects {
+    background-image: linear-gradient(
+      to bottom,
+      transparent 3rem,
+      var(--color-brand) 3rem,
+      var(--color-brand) calc(100% - 1.5rem),
+      transparent calc(100% - 1.5rem)
+    );
+  }
+
+  .section-articles {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+
+    > h1 {
+      inline-size: 100%;
+      margin-block-end: 0;
+      border-block-end: 5px solid;
+      padding-block-end: 0.5rem;
+    }
+  }
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    max-inline-size: 70ch;
+    margin-inline: auto;
+
+    > p {
+      margin-block-end: 0;
+      color: #faf0e1;
+    }
+
+    > a {
+      inline-size: fit-content;
+    }
+  }
+
+  .projects-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    inline-size: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 1.5rem;
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import logo from '@/assets/logo.svg';
+import { Image } from 'astro:assets';
+---
+
+<header>
+  <div class="content">
+    <a
+      href="/"
+      data-astro-prefetch
+    >
+      <Image
+        src={logo}
+        alt="Logo"
+        class="logo"
+      />
+    </a>
+  </div>
+</header>
+
+<style>
+  header {
+    padding-block-start: 3rem;
+  }
+
+  .content {
+    max-inline-size: 70ch;
+    margin-inline: auto;
+  }
+
+  img {
+    display: block;
+    block-size: 3rem;
+    inline-size: 3rem;
+    will-change: transform;
+
+    &:is(:hover, :focus-visible) {
+      animation: boink 0.25s ease-in-out;
+    }
+  }
+
+  @keyframes boink {
+    50% {
+      transform: rotateZ(-5deg);
+    }
+  }
+</style>
