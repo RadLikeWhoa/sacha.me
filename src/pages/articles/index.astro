@@ -10,6 +10,41 @@ const articles = (await getCollection('articles')).sort(
 
 <Layout title="Articles">
   <section>
-    {articles.map((article) => <ArticleTeaser article={article} />)}
+    <ol>
+      {
+        articles.map((article) => (
+          <li>
+            <ArticleTeaser article={article} />
+            <a href={`/articles/${article.id}`}>Read more</a>
+          </li>
+        ))
+      }
+    </ol>
   </section>
 </Layout>
+
+<style>
+  section {
+    max-inline-size: 70ch;
+    margin-inline: auto;
+    padding-block: 3rem;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &:not(:last-child) {
+      margin-block-end: 3rem;
+      padding-block-end: 3rem;
+      border-block-end: 1px solid #c3c3c3;
+    }
+  }
+</style>
