@@ -1,0 +1,140 @@
+---
+import Icon from './Icon.astro';
+
+const pathname = Astro.url.pathname;
+
+console.log(pathname);
+---
+
+<nav>
+  <ol>
+    <li>
+      <a
+        href="/"
+        class:list={[{ active: pathname === '/' }]}
+      >
+        <span class="icon"><Icon>home</Icon></span>
+        <span class="label">Home</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/projects"
+        class:list={[{ active: pathname.startsWith('/projects') }]}
+      >
+        <span class="icon"><Icon>work</Icon></span>
+        <span class="label">Projects</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/articles"
+        class:list={[{ active: pathname.startsWith('/articles') }]}
+      >
+        <span class="icon"><Icon>article</Icon></span>
+        <span class="label">Articles</span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="/about"
+        class:list={[{ active: pathname.startsWith('/about') }]}
+      >
+        <span class="icon"><Icon>person</Icon></span>
+        <span class="label">About</span>
+      </a>
+    </li>
+  </ol>
+</nav>
+
+<style>
+  ol {
+    display: grid;
+    position: relative;
+    z-index: 1;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 1rem;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 0;
+      block-size: 100%;
+      inline-size: calc(25% - 0.75rem);
+      transition: translate 0.25s ease-in-out;
+      border-radius: 10px;
+      background-color: var(--logo-fill-color, var(--color-brand));
+      inset-block: 0;
+      inset-inline-start: 0;
+    }
+
+    &:has(li:nth-child(1) a.active)::before {
+      translate: 0 0;
+    }
+
+    &:has(li:nth-child(2) a.active)::before {
+      translate: calc(100% + 1rem) 0;
+    }
+
+    &:has(li:nth-child(3) a.active)::before {
+      translate: calc(200% + 2rem) 0;
+    }
+
+    &:has(li:nth-child(4) a.active)::before {
+      translate: calc(300% + 3rem) 0;
+    }
+
+    &:has(li:nth-child(1) a:is(:hover, :focus-visible))::before {
+      translate: 0 0;
+    }
+
+    &:has(li:nth-child(2) a:is(:hover, :focus-visible))::before {
+      translate: calc(100% + 1rem) 0;
+    }
+
+    &:has(li:nth-child(3) a:is(:hover, :focus-visible))::before {
+      translate: calc(200% + 2rem) 0;
+    }
+
+    &:has(li:nth-child(4) a:is(:hover, :focus-visible))::before {
+      translate: calc(300% + 3rem) 0;
+    }
+  }
+
+  li {
+    position: relative;
+    z-index: 1;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    block-size: 3rem;
+    padding-inline: 0.5rem;
+    transition: color 0.25s ease-in-out;
+    color: var(--logo-fill-color, var(--color-brand));
+    text-decoration: none;
+    gap: 0.5rem;
+
+    &.active {
+      color: var(--page-accent-color, #faf0e1);
+    }
+
+    &:is(.active, :hover, :focus-visible) {
+      color: var(--page-accent-color, #faf0e1);
+    }
+
+    ol:has(a:is(:hover, :focus-visible)) & {
+      color: var(--logo-fill-color, var(--color-brand));
+
+      &:is(:hover, :focus-visible) {
+        color: var(--page-accent-color, #faf0e1);
+      }
+    }
+  }
+</style>

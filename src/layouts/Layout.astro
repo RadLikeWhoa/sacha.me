@@ -1,6 +1,7 @@
 ---
 import Footer from '@/components/Footer.astro';
 import Header from '@/components/Header.astro';
+import { Font } from 'astro:assets';
 
 interface Props {
   title?: string;
@@ -26,10 +27,11 @@ const { title } = Astro.props;
       rel="icon"
       href="/favicon.ico"
     />
-    <title>{title ? `${title} - Sacha Schmid` : 'Sacha Schmid'}</title>
+    <Font cssVariable="--font-material-symbols" />
+    <title>{title ? `${title} — Sacha Schmid` : 'Sacha Schmid'}</title>
     <style is:global>
       :root {
-        --color-brand: #e95e7a;
+        --color-brand: #009f4d;
         --color-white: #faf0e1;
         --content-width: 75ch;
       }
@@ -71,6 +73,30 @@ const { title } = Astro.props;
 
       a {
         color: var(--color-brand);
+      }
+
+      dl {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+        padding: 0;
+        border: 1px solid #e4e0d9;
+        border-radius: 10px;
+        background-color: #f6e5cb;
+      }
+
+      :is(dt, dd):not(:nth-last-child(-n + 2)) {
+        border-block-end: 1px solid #e4e0d9;
+      }
+
+      dt {
+        padding: 0.25rem 0.75rem;
+        color: #aaa;
+        border-inline-end: 1px solid #e4e0d9;
+      }
+
+      dd {
+        margin: 0;
+        padding: 0.25rem 0.75rem;
       }
     </style>
   </head>

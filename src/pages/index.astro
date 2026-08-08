@@ -67,7 +67,7 @@ const article = (await getCollection('articles'))
   .section-articles {
     max-inline-size: var(--content-width);
     margin-inline: auto;
-    padding-block: 3rem;
+    padding-block: 4.5rem;
   }
 
   .section-intro {
@@ -76,16 +76,6 @@ const article = (await getCollection('articles'))
       font-size: 1.3rem;
       line-height: 1.54;
     }
-  }
-
-  .section-projects {
-    background-image: linear-gradient(
-      to bottom,
-      transparent 3rem,
-      var(--color-brand) 3rem,
-      var(--color-brand) calc(100% - 1.5rem),
-      transparent calc(100% - 1.5rem)
-    );
   }
 
   .section-articles {
@@ -104,15 +94,27 @@ const article = (await getCollection('articles'))
 
   .projects {
     display: flex;
+    position: relative;
     flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-start;
+    align-items: center;
     max-inline-size: var(--content-width);
     margin-inline: auto;
+    gap: 1.5rem;
+    padding-inline: 1.5rem;
 
     > p {
       margin-block-end: 0;
       color: #faf0e1;
+      text-align: center;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border-radius: 10px;
+      background-color: var(--color-brand);
+      inset: 3rem 0 1.5rem;
     }
   }
 

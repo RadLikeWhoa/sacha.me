@@ -1,5 +1,6 @@
 ---
 import Logo from '@/assets/logo.svg';
+import Navigation from './Navigation.astro';
 ---
 
 <header>
@@ -10,6 +11,7 @@ import Logo from '@/assets/logo.svg';
     >
       <Logo />
     </a>
+    <Navigation />
   </div>
 </header>
 
@@ -20,6 +22,9 @@ import Logo from '@/assets/logo.svg';
   }
 
   .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-inline-size: var(--content-width);
     margin-inline: auto;
   }

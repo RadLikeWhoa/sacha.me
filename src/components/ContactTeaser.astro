@@ -1,0 +1,62 @@
+---
+import Button from './Button.astro';
+
+interface Props {
+  cta: string;
+  target: string;
+}
+
+const { cta, target } = Astro.props;
+---
+
+<section>
+  <div class="teaser">
+    <p>
+      For comments and questions, <a href="mailto:hello@sacha.me">
+        contact me through e-mail
+      </a>.
+    </p>
+    <Button
+      href={target}
+      variant="secondary"
+      raised
+    >
+      {cta}
+    </Button>
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+    max-inline-size: var(--content-width);
+    margin: 0 auto 4.5rem;
+    padding: 1.5rem 1.5rem 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border-radius: 10px;
+      background-color: var(--color-brand);
+      inset: 0 0 1.5rem;
+    }
+  }
+
+  .teaser {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+
+    > p {
+      margin-block-end: 0;
+      color: #faf0e1;
+      text-align: center;
+
+      a {
+        color: #333;
+      }
+    }
+  }
+</style>

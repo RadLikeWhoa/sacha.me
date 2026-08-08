@@ -34,8 +34,8 @@ const {
 
   .icon-well {
     display: grid;
-    place-content: center;
     border-radius: 10px;
+    place-content: center;
 
     &.raised {
       box-shadow: 0 5px 10px rgb(51 51 51 / 35%);
@@ -44,6 +44,8 @@ const {
 
   img {
     display: block;
+    position: relative;
+    z-index: 1;
     max-block-size: 100%;
     max-inline-size: 100%;
   }

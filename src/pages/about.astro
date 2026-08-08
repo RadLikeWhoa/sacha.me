@@ -3,7 +3,11 @@ import Layout from '@/layouts/Layout.astro';
 ---
 
 <Layout>
-  <section>
+  <article>
+    <p>
+      My name is Sacha Schmid. I'm a front-end developer from Switzerland,
+      interested in both interface design and web development.
+    </p>
     <p>
       I graduated from <a
         href="https://fhnw.ch/en/"
@@ -27,7 +31,7 @@ import Layout from '@/layouts/Layout.astro';
         href="/projects"
         data-astro-prefetch
       >
-        Projects
+        projects
       </a> page.
     </p>
     <dl>
@@ -83,8 +87,6 @@ import Layout from '@/layouts/Layout.astro';
       photography. I like to go to concerts and festivals and just enjoy the
       music and the people around me.
     </p>
-  </section>
-  <section>
     <h2>About this site</h2>
     <p>
       This site was created with <a
@@ -107,5 +109,13 @@ import Layout from '@/layouts/Layout.astro';
         the site's source
       </a>.
     </p>
-  </section>
+  </article>
 </Layout>
+
+<style>
+  article {
+    max-inline-size: var(--content-width);
+    margin-inline: auto;
+    padding-block: 4.5rem 3rem;
+  }
+</style>
