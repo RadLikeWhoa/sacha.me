@@ -1,6 +1,5 @@
 ---
-import logo from '@/assets/logo.svg';
-import { Image } from 'astro:assets';
+import Logo from '@/assets/logo.svg';
 ---
 
 <header>
@@ -9,12 +8,7 @@ import { Image } from 'astro:assets';
       href="/"
       data-astro-prefetch
     >
-      <Image
-        src={logo}
-        alt="Logo"
-        class="logo"
-        loading="eager"
-      />
+      <Logo />
     </a>
   </div>
 </header>
@@ -34,7 +28,7 @@ import { Image } from 'astro:assets';
     display: inline-block;
   }
 
-  img {
+  svg {
     display: block;
     block-size: 3rem;
     inline-size: 3rem;

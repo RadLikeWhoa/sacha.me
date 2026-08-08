@@ -190,11 +190,16 @@ const {
       transparent 3rem
     );
 
+    a {
+      display: block;
+      max-inline-size: var(--content-width);
+      margin-inline: auto;
+    }
+
     img {
       display: block;
       block-size: auto;
-      max-inline-size: var(--content-width);
-      margin-inline: auto;
+      max-inline-size: 100%;
       border-radius: 10px;
       box-shadow:
         0 1px 10px rgb(51 51 51 / 35%),
@@ -259,4 +264,5 @@ const {
 
 <script is:inline define:vars={{ background }}>
   document.body.style.setProperty('--page-accent-color', background);
+  document.body.style.setProperty('--logo-fill-color', '#faf0e1');
 </script>
