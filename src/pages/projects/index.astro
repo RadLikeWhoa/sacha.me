@@ -10,6 +10,39 @@ const projects = (await getCollection('projects')).sort(
 
 <Layout title="Projects">
   <section>
-    {projects.map((project) => <ProjectTeaser project={project} />)}
+    <ol>
+      {
+        projects.map((project, index) => (
+          <li>
+            <ProjectTeaser
+              project={project}
+              alternate={index % 2 === 0}
+            />
+          </li>
+        ))
+      }
+    </ol>
   </section>
 </Layout>
+
+<style>
+  section {
+    max-inline-size: 70ch;
+    margin-inline: auto;
+    padding-block: 3rem;
+  }
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li:not(:last-child) {
+    margin-block-end: 3rem;
+    padding-block-end: 3rem;
+    border-block-end: 1px solid #c3c3c3;
+  }
+</style>

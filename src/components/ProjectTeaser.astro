@@ -1,29 +1,88 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import IconWell from './IconWell.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>;
+  alternate: boolean;
 }
 
-const { project } = Astro.props;
+const { project, alternate } = Astro.props;
 
 const {
   id,
-  data: { title, teaser, tags, date },
+  data: { title, teaser, tags, date, icon, background },
 } = project;
 ---
 
-<article>
-  <h1>
-    <a
-      href={`/projects/${id}`}
-      data-astro-prefetch
-    >
-      {title}
-    </a>
-  </h1>
-  <p>{date.toLocaleDateString('de-CH', { year: 'numeric' })} – {teaser}</p>
-  <ul>
-    {tags.map((tag) => <li>{tag}</li>)}
-  </ul>
+<article class:list={[{ alternate }]}>
+  <IconWell
+    title={title}
+    icon={icon}
+    background={background}
+    path={`/projects/${id}`}
+  />
+  <div class="content">
+    <h1>
+      <a
+        href={`/projects/${id}`}
+        data-astro-prefetch
+      >
+        {title}
+      </a>
+    </h1>
+    <p>
+      <time>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</time> – {
+        teaser
+      }
+    </p>
+    <ul>
+      {tags.map((tag) => <li>{tag}</li>)}
+    </ul>
+  </div>
 </article>
+
+<style>
+  article {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 1.5rem;
+  }
+
+  .alternate {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    > :is(h1, p) {
+      margin-block-end: 0;
+    }
+
+    .alternate & {
+      order: -1;
+    }
+  }
+
+  time {
+    color: #989898;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 0.5rem;
+  }
+
+  li {
+    padding: 0.25rem 0.75rem;
+    border-radius: 10px;
+    background-color: #c3c3c3;
+  }
+</style>
