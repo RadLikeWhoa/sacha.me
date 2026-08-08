@@ -6,6 +6,10 @@
   ],
   "plugins": ["stylelint-order", "stylelint-use-logical"],
   "rules": {
-    "csstools/use-logical": "always"
+    "csstools/use-logical": "always",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      { "ignorePseudoClasses": ["global"] }
+    ]
   }
 }

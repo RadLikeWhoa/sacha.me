@@ -45,10 +45,7 @@ The idea for this project came from the Institute of Mobile and Distributed Syst
 
 This solution was to be built around a Raspberry Pi that is connected to a moisture sensor and a water pump. The Pi then runs some code (written in Haskell) to monitor the plant and activate the pump whenever it is needed. All the data should be presented in a dashboard (built with React) that was accessible to everyone in the office.
 
-<figure>
-  <img src="flower.png">
-  <figcaption data-marginalia="right">An innocent test subject with the connected sensor.</figcaption>
-</figure>
+![An innocent test subject with the connected sensor.](./flower.png)
 
 One goal of this project was to showcase the real-world applications of Haskell in order to prove its usefulness outside of a scholarly context. In addition to this, the application was to be used as part of a lecture on functional programming and Haskell, thus the codebase needed to be kept simple enough for learners to understand.
 
@@ -60,10 +57,7 @@ The clear focus on functional programming allowed me to gain more knowledge on a
 
 Also, this was the first project where I worked with a Raspberry Pi. I knew what the device was capable of and I'd seen lots of interesting projects built around it, but I never had the chance to work on a project of my own. So I was understandably excited to start working with the little computer. The fear of breaking all the intricate parts whenever we plugged in a new peripheral or connected one of the sensors was constantly looming over our heads, but in the end we made it work and got to know many aspects of computers much better.
 
-<figure>
-  <img src="hardware.png">
-  <figcaption data-marginalia="right">Making sense of all the wires and where they were going was not always the easiest task.</figcaption>
-</figure>
+![Making sense of all the wires and where they were going was not always the easiest task.](./hardware.png)
 
 What was especially interesting during this project was the reliance on real-time communication. We needed to make sure that the water pump could only ever be activated by one person. In addition to that, there had to be a limit on activations so that the flower could not be flooded unnecessarily. A combination of Haskell concurrency in the backend and state management on the dashboard allowed us to handle most cases where concurrent access could lead to problems. Testing this functionality was some of the most time-consuming work throughout this project.
 

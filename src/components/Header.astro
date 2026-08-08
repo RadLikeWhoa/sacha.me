@@ -4,23 +4,30 @@ import { Image } from 'astro:assets';
 ---
 
 <header>
-  <a
-    href="/"
-    data-astro-prefetch
-  >
-    <Image
-      src={logo}
-      alt="Logo"
-      class="logo"
-    />
-  </a>
+  <div class="content">
+    <a
+      href="/"
+      data-astro-prefetch
+    >
+      <Image
+        src={logo}
+        alt="Logo"
+        class="logo"
+        loading="eager"
+      />
+    </a>
+  </div>
 </header>
 
 <style>
   header {
+    padding-block-start: 3rem;
+    background-color: var(--page-accent-color, transparent);
+  }
+
+  .content {
     max-inline-size: var(--content-width);
     margin-inline: auto;
-    padding-block-start: 3rem;
   }
 
   a {

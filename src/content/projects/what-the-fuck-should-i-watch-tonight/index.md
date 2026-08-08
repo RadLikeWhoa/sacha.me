@@ -30,10 +30,7 @@ icon: icon.svg
 
 As part of the Web Engineering course at the UAS we were tasked with creating a web application that offers a REST API coupled to a database, while also using a third-party API. The exercise's goal was to strengthen our skills in HTML, CSS, JavaScript, and PHP, while also giving us an opportunity to brainstorm for an appropriate idea.
 
-<figure>
-  <img src="emotions.png">
-  <figcaption data-marginalia="right">Concept art showing all of the available emotions which are the core of the experience.</figcaption>
-</figure>
+![Concept art showing all of the available emotions which are the core of the experience.](./emotions.png)
 
 My team and I came up with this idea after some others failed to meet the requirements of the exercise. We wanted to tackle a problem that all of us know and experience on a regular basis.
 
@@ -41,10 +38,7 @@ Picking the right movie for the right situation can sometimes be an overwhelming
 
 We went on to collect a list of basic emotions that a movie might make you feel. These six emotions — amused, sad, excited, scared, inspired, weird — were to be the core of the experience. A user visits the site and is presented with these emotions. They then select one option and can view a list of movies that match this emotion. This list can then be sorted by various criteria, such as release date, percentage of match or when they were added to the database.
 
-<figure>
-  <img src="search.png">
-  <figcaption data-marginalia="right">Search functionality using <abbr title="The Movie Database">TMDB</abbr> data. Movies are only added to our own database if they are not already present.</figcaption>
-</figure>
+![Search functionality using TMDB data. Movies are only added to our own database if they are not already present.](./search.png)
 
 All movies are added by the users. They can search for a movie by its name and then save a rating for it. If the movie is already present in the database only the rating is saved, otherwise all the necessary details for the movie are saved as well. All data is pulled from The Movie Database.
 
@@ -52,10 +46,7 @@ All movies are added by the users. They can search for a movie by its name and t
 
 I decided to use this as an opportunity to finally learn more about React by using it in a real world project. Setting up the project was a bit of a chore, but it did not take too long for me to fully appreciate React and all its core principles.
 
-<figure>
-  <img src="react.png">
-  <figcaption data-marginalia="right">A slide I used in the review presentation at the end of the semester showing my appreciation of React and its concepts.</figcaption>
-</figure>
+![A slide I used in the review presentation at the end of the semester showing my appreciation of React and its concepts.](./react.png)
 
 Things like JSX, components, states and props, and immutability quickly went from confusing new terminologies to helpful tools to increase efficiency during programming, but also of the application itself. I plan on working with React a lot more in the future.
 

@@ -36,10 +36,7 @@ Unlike the classic arcade game, PONG?! can be a rather slow game. Players are en
 
 This project was mainly an exercise in idea finding. I've mentioned it earlier, but since this was not our original idea we had to get creative and figure out an idea that could be realised within the given time frame. I ended up combining and adapting different ideas that worked best together.
 
-<figure>
-  <img src="result.png">
-  <figcaption data-marginalia="right">Rewards are based on some conditions, like bluffing, scoring or using a double-up.</figcaption>
-</figure>
+![Rewards are based on some conditions, like bluffing, scoring or using a double-up.](./result.png)
 
 Developing the mechanics and deciding on the reward distribution was one of the more complex tasks of the project. This required a general understanding of how mechanics are created and ways to balance the game, all of which was taught throughout the lecture.
 

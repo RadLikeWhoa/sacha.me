@@ -1,5 +1,7 @@
 ---
+import Button from '@/components/Button.astro';
 import Layout from '@/layouts/Layout.astro';
+import { Image } from 'astro:assets';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -16,81 +18,245 @@ type Props = CollectionEntry<'projects'>;
 const project = Astro.props;
 const { Content } = await render(project);
 
-const { date, title, teaser, repo, link, tags, tasks, technologies, end } =
-  project.data;
+const {
+  date,
+  title,
+  teaser,
+  repo,
+  link,
+  hero,
+  tags,
+  tasks,
+  technologies,
+  end,
+  background,
+} = project.data;
 ---
 
 <Layout {...project.data}>
   <article>
     <header>
-      <h1>{title}</h1>
-      <p>{teaser}</p>
+      <div class="header-content">
+        <h1>{title}</h1>
+        <p>{teaser}</p>
+      </div>
     </header>
-    <dl>
-      <dd>Started</dd>
-      <dt>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dt>
+    <div class="hero-image">
       {
-        end && (
-          <>
-            <dd>Ended</dd>
-            <dt>{end}</dt>
-          </>
+        link ? (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Image
+              src={hero}
+              alt={title}
+            />
+          </a>
+        ) : (
+          <Image
+            src={hero}
+            alt={title}
+          />
         )
       }
-      {
-        repo && (
-          <>
-            <dd>Repository</dd>
-            <dt>
-              <a
-                href={repo}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {repo}
-              </a>
-            </dt>
-          </>
-        )
-      }
-      {
-        link && (
-          <>
-            <dd>URL</dd>
-            <dt>
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link}
-              </a>
-            </dt>
-          </>
-        )
-      }
-      <dd>Tags</dd>
-      <dt>{tags.join(', ')}</dt>
-    </dl>
-    <Content />
-    <dl>
-      <dd>Tasks</dd>
-      <dt>{tasks.join(', ')}</dt>
-      <dd>Technologies</dd>
-      <dt>{technologies.join(', ')}</dt>
-    </dl>
-    <footer>
+    </div>
+    <div class="content">
+      <dl>
+        <dt>Started</dt>
+        <dd>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dd>
+        {
+          end && (
+            <>
+              <dt>Ended</dt>
+              <dd>{end}</dd>
+            </>
+          )
+        }
+        {
+          repo && (
+            <>
+              <dt>Repository</dt>
+              <dd>
+                <a
+                  href={repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {repo}
+                </a>
+              </dd>
+            </>
+          )
+        }
+        {
+          link && (
+            <>
+              <dt>URL</dt>
+              <dd>
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {link}
+                </a>
+              </dd>
+            </>
+          )
+        }
+        <dt>Tags</dt>
+        <dd>{tags.join(', ')}</dd>
+      </dl>
+      <Content />
+      <dl>
+        <dt>Tasks</dt>
+        <dd>{tasks.join(', ')}</dd>
+        <dt>Technologies</dt>
+        <dd>{technologies.join(', ')}</dd>
+      </dl>
+    </div>
+  </article>
+  <section>
+    <div class="teaser">
       <p>
         For comments and questions, <a href="mailto:hello@sacha.me">
           contact me through e-mail
         </a>.
       </p>
-      <a
+      <Button
         href="/projects"
-        data-astro-prefetch
+        variant="secondary"
+        raised
       >
-        View more projects
-      </a>
-    </footer>
-  </article>
+        Discover more projects
+      </Button>
+    </div>
+  </section>
 </Layout>
+
+<style define:vars={{ background }}>
+  .content {
+    max-inline-size: var(--content-width);
+    margin-inline: auto;
+    padding-block: 3rem 1.5rem;
+
+    :global(p > img) {
+      display: block;
+      block-size: auto;
+      inline-size: 100%;
+    }
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    padding-block: 3rem;
+    background-color: var(--background);
+    gap: 0.5rem;
+    color: #faf0e1;
+
+    :is(h1, p) {
+      margin-block-end: 0;
+    }
+
+    h1 {
+      padding-block-end: 0.5rem;
+      font-size: 4rem;
+      line-height: 1.125;
+      border-block-end: 5px solid;
+      overflow-wrap: anywhere;
+    }
+
+    p {
+      font-size: 1.3em;
+      line-height: 1.54;
+    }
+  }
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    max-inline-size: var(--content-width);
+    margin-inline: auto;
+  }
+
+  .hero-image {
+    background-image: linear-gradient(
+      to bottom,
+      var(--background) 3rem,
+      transparent 3rem
+    );
+
+    img {
+      display: block;
+      block-size: auto;
+      max-inline-size: var(--content-width);
+      margin-inline: auto;
+      border-radius: 10px;
+      box-shadow:
+        0 1px 10px rgb(51 51 51 / 35%),
+        0 5px 10px rgba(51 51 51 / 15%);
+    }
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    padding: 0;
+    border: 1px solid #e4e0d9;
+    border-block-end: 0;
+    background-color: #f6e5cb;
+  }
+
+  dt,
+  dd {
+    border-block-end: 1px solid #e4e0d9;
+  }
+
+  dt {
+    padding: 0.25rem 0.75rem;
+    color: #aaa;
+    font-weight: 700;
+    border-inline-end: 1px solid #e4e0d9;
+  }
+
+  dd {
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+  }
+
+  section {
+    margin-block-end: 3rem;
+    padding-block-start: 1.5rem;
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-brand) calc(100% - 1.5rem),
+      transparent calc(100% - 1.5rem)
+    );
+  }
+
+  .teaser {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-inline-size: var(--content-width);
+    margin-inline: auto;
+    gap: 1.5rem;
+
+    > p {
+      margin-block-end: 0;
+      color: #faf0e1;
+
+      a {
+        color: #333;
+      }
+    }
+  }
+</style>
+
+<script is:inline define:vars={{ background }}>
+  document.body.style.setProperty('--page-accent-color', background);
+</script>

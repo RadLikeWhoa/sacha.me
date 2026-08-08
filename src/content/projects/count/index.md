@@ -28,10 +28,7 @@ Count! is an app that does exactly what the name says. It lets you keep track of
 
 In order to make the experience even more pleasant, the app even provides a today extension, i.e. a widget that lets you access your latest counter from anywhere in the system.
 
-<figure>
-  <img src="widget.png">
-  <figcaption data-marginalia="right">The app, along with its widget. This combination provides the ideal combination of quick access and overview.</figcaption>
-</figure>
+![The app, along with its widget. This combination provides the ideal combination of quick access and overview.](./widget.png)
 
 This app was created as a project for a workshop at the UAS. The goal was to create an application, either a native application on Android or iOS, or a hybrid application using Ionic. I decided to go with iOS in an attempt to further gain experience with the platform and related tools.
 

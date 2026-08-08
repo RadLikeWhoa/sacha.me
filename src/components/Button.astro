@@ -13,6 +13,7 @@ const { href, variant = 'primary', raised } = Astro.props;
     <a
       href={href}
       class:list={[variant, { raised }]}
+      data-astro-prefetch
     >
       <slot />
     </a>
@@ -33,13 +34,9 @@ const { href, variant = 'primary', raised } = Astro.props;
     background-color: var(--color-brand);
     color: var(--color-white);
     font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
     appearance: none;
-
-    &:hover,
-    &:focus-visible {
-      text-decoration: none;
-    }
   }
 
   .secondary {
