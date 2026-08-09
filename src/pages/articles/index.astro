@@ -15,7 +15,6 @@ const articles = (await getCollection('articles')).sort(
         articles.map((article) => (
           <li>
             <ArticleTeaser article={article} />
-            <a href={`/articles/${article.id}`}>Read more</a>
           </li>
         ))
       }
@@ -36,15 +35,9 @@ const articles = (await getCollection('articles')).sort(
     list-style: none;
   }
 
-  li {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    &:not(:last-child) {
-      margin-block-end: 3rem;
-      padding-block-end: 3rem;
-      border-block-end: 1px solid #e4e0d9;
-    }
+  li:not(:last-child) {
+    margin-block-end: 3rem;
+    padding-block-end: 3rem;
+    border-block-end: 1px solid #f5e1c2;
   }
 </style>

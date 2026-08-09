@@ -30,7 +30,7 @@ technologies:
   - I2C
   - GPIO
 pattern: dots
-background: rgb(130, 145, 154)
+accent: rgb(130, 145, 154)
 client: Insititue of Mobile and Distributed Systems
 repo: https://github.com/RadLikeWhoa/happyflowers
 link: https://sacha.me/happyflowers/

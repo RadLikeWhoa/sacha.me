@@ -15,7 +15,13 @@ export default defineConfig({
       cssVariable: '--font-material-symbols',
       options: {
         experimental: {
-          glyphs: ['home', 'work', 'article', 'person'],
+          glyphs: [
+            'home',
+            'work',
+            'article',
+            'person',
+            'keyboard_double_arrow_right',
+          ],
         },
       },
     },

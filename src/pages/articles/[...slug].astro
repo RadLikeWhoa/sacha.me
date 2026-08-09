@@ -33,19 +33,21 @@ const { Content } = await render(article);
         }
       </time>
     </header>
-    <Content />
+    <div class="content">
+      <Content />
+    </div>
+    <ContactTeaser
+      cta="Read more articles"
+      target="/articles"
+    />
   </article>
-  <ContactTeaser
-    cta="Read more articles"
-    target="/articles"
-  />
 </Layout>
 
 <style>
   article {
     max-inline-size: var(--content-width);
     margin-inline: auto;
-    padding-block: 3rem 1.5rem;
+    padding-block: 4.5rem;
   }
 
   header {
@@ -53,20 +55,25 @@ const { Content } = await render(article);
     flex-direction: column;
     gap: 0.5rem;
     margin-block-end: 3rem;
-
-    > h1 {
-      margin-block-end: 0;
-    }
   }
 
   time {
     color: #aaa;
   }
-</style>
 
-<style is:global>
-  .astro-code {
-    padding: 1.5rem;
-    border-radius: 10px;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-block-end: 1.5rem;
+
+    :global(.astro-code) {
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+
+    :global(:is(h1, h2, h3)) {
+      margin-block-start: 1.5rem;
+    }
   }
 </style>

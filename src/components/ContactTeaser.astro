@@ -18,8 +18,8 @@ const { cta, target } = Astro.props;
     </p>
     <Button
       href={target}
-      variant="secondary"
       raised
+      suffix="keyboard_double_arrow_right"
     >
       {cta}
     </Button>
@@ -29,8 +29,9 @@ const { cta, target } = Astro.props;
 <style>
   section {
     position: relative;
+    inline-size: 100%;
     max-inline-size: var(--content-width);
-    margin: 0 auto 4.5rem;
+    margin-inline: auto;
     padding: 1.5rem 1.5rem 0;
 
     &::before {
@@ -38,8 +39,9 @@ const { cta, target } = Astro.props;
       position: absolute;
       z-index: -1;
       border-radius: 10px;
-      background-color: var(--color-brand);
+      background-color: #fdf9f2;
       inset: 0 0 1.5rem;
+      box-shadow: var(--shadow-elevation-low);
     }
   }
 
@@ -51,12 +53,7 @@ const { cta, target } = Astro.props;
 
     > p {
       margin-block-end: 0;
-      color: #faf0e1;
       text-align: center;
-
-      a {
-        color: #333;
-      }
     }
   }
 </style>

@@ -15,7 +15,7 @@ technologies:
   - Git
   - GitHub Pages
 pattern: dots
-background: rgb(207, 118, 89)
+accent: rgb(207, 118, 89)
 link: https://sacha.me/SSGS/
 repo: https://github.com/RadLikeWhoa/SSGS
 end: 2018

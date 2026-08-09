@@ -19,7 +19,7 @@ technologies:
   - Sass
   - PHP
 pattern: cubes
-background: rgb(86, 137, 194)
+accent: rgb(86, 137, 194)
 repo: https://github.com/RadLikeWhoa/whatthefuckshouldiwatchtonight
 end: 2016
 team: 3

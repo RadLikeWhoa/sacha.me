@@ -5,9 +5,17 @@ import { Font } from 'astro:assets';
 
 interface Props {
   title?: string;
+  accent?: string;
+  headerBackgroundColor?: string;
+  headerForegroundColor?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  accent = '#009f4d',
+  headerBackgroundColor,
+  headerForegroundColor,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -29,11 +37,34 @@ const { title } = Astro.props;
     />
     <Font cssVariable="--font-material-symbols" />
     <title>{title ? `${title} — Sacha Schmid` : 'Sacha Schmid'}</title>
-    <style is:global>
+    <style
+      is:global
+      define:vars={{
+        accent,
+        'header-background-color': headerBackgroundColor,
+        'header-foreground-color': headerForegroundColor,
+      }}
+    >
       :root {
-        --color-brand: #009f4d;
-        --color-white: #faf0e1;
+        --accent-color: var(--accent);
+
+        --header-foreground-color: var(--header-foreground-color);
+        --header-background-color: var(--header-background-color);
+
         --content-width: 75ch;
+
+        --shadow-color: #ae997a;
+
+        --shadow-elevation-low:
+          0px 0.6px 0.7px rgb(from var(--shadow-color) r g b / 34%),
+          0px 1px 1.1px -1.2px rgb(from var(--shadow-color) r g b / 34%),
+          0px 2.5px 2.8px -2.5px rgb(from var(--shadow-color) r g b / 34%);
+
+        --shadow-elevation-high:
+          0px 0.6px 0.7px rgb(from var(--shadow-color) r g b / 34%),
+          0px 2px 2.3px -0.8px rgb(from var(--shadow-color) r g b / 34%),
+          0px 5px 5.6px -1.7px rgb(from var(--shadow-color) r g b / 34%),
+          0px 12.3px 13.8px -2.5px rgb(from var(--shadow-color) r g b / 34%);
       }
 
       * {
@@ -59,39 +90,35 @@ const { title } = Astro.props;
 
       body {
         margin: 0;
-        background-color: var(--color-white);
+        background-color: #faf0e1;
         color: #333;
       }
 
       :is(h1, h2, h3, p, ul, ol, dl, pre) {
-        margin-block-start: 0;
-      }
-
-      :is(p, ul, ol, dl, pre) {
-        margin-block-end: 1.5rem;
+        margin-block: 0;
       }
 
       a {
-        color: var(--color-brand);
+        color: var(--accent-color);
       }
 
       dl {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
         padding: 0;
-        border: 1px solid #e4e0d9;
         border-radius: 10px;
-        background-color: #f6e5cb;
+        background-color: #fdf9f2;
+        box-shadow: var(--shadow-elevation-low);
       }
 
       :is(dt, dd):not(:nth-last-child(-n + 2)) {
-        border-block-end: 1px solid #e4e0d9;
+        border-block-end: 1px solid #f5e1c2;
       }
 
       dt {
         padding: 0.25rem 0.75rem;
         color: #aaa;
-        border-inline-end: 1px solid #e4e0d9;
+        border-inline-end: 1px solid #f5e1c2;
       }
 
       dd {

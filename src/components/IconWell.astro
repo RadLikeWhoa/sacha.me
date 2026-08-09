@@ -4,22 +4,19 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   project: CollectionEntry<'projects'>;
-  raised?: boolean;
+  elevation?: 'low' | 'high';
 }
 
-const { project, raised } = Astro.props;
+const { project, elevation } = Astro.props;
 
 const {
   id,
-  data: { title, background, icon },
+  data: { title, accent, icon },
 } = project;
 ---
 
 <a href={`/projects/${id}`}>
-  <div
-    class:list={['icon-well', { raised }]}
-    style={{ backgroundColor: background }}
-  >
+  <div class:list={['icon-well', elevation]}>
     <Image
       src={icon}
       alt={`${title} icon`}
@@ -27,7 +24,7 @@ const {
   </div>
 </a>
 
-<style>
+<style define:vars={{ accent }}>
   a {
     display: block;
   }
@@ -36,10 +33,15 @@ const {
     display: grid;
     border-radius: 10px;
     place-content: center;
+    background-color: var(--accent);
+  }
 
-    &.raised {
-      box-shadow: 0 5px 10px rgb(51 51 51 / 35%);
-    }
+  .low {
+    box-shadow: var(--shadow-elevation-low);
+  }
+
+  .high {
+    box-shadow: var(--shadow-elevation-high);
   }
 
   img {

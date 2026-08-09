@@ -1,8 +1,8 @@
 ---
+import ContactTeaser from '@/components/ContactTeaser.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import ContactTeaser from '@/components/ContactTeaser.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -29,11 +29,16 @@ const {
   tasks,
   technologies,
   end,
-  background,
+  accent,
 } = project.data;
 ---
 
-<Layout {...project.data}>
+<Layout
+  title={title}
+  accent={accent}
+  headerBackgroundColor={accent}
+  headerForegroundColor="#fdf9f2"
+>
   <article>
     <header>
       <div class="header-content">
@@ -52,6 +57,7 @@ const {
             <Image
               src={hero}
               alt={title}
+              loading="eager"
             />
           </a>
         ) : (
@@ -116,38 +122,43 @@ const {
         <dt>Technologies</dt>
         <dd>{technologies.join(', ')}</dd>
       </dl>
+      <ContactTeaser
+        cta="Discover more projects"
+        target="/projects"
+      />
     </div>
   </article>
-  <ContactTeaser
-    cta="Discover more projects"
-    target="/projects"
-  />
 </Layout>
 
-<style define:vars={{ background }}>
+<style>
   .content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     max-inline-size: var(--content-width);
     margin-inline: auto;
-    padding-block: 3rem 1.5rem;
+    padding-block: 4.5rem;
 
     :global(p > img) {
       display: block;
       block-size: auto;
       inline-size: 100%;
+      border-radius: 10px;
+      box-shadow: var(--shadow-elevation-low);
+    }
+
+    :global(:is(h1, h2, h3)) {
+      margin-block-start: 1.5rem;
     }
   }
 
   header {
     display: flex;
     flex-direction: column;
-    padding-block: 3rem;
-    background-color: var(--background);
+    padding-block: 4.5rem;
+    background-color: var(--header-background-color);
     gap: 0.5rem;
     color: #faf0e1;
-
-    :is(h1, p) {
-      margin-block-end: 0;
-    }
 
     h1 {
       padding-block-end: 0.5rem;
@@ -172,11 +183,7 @@ const {
   }
 
   .hero-image {
-    background-image: linear-gradient(
-      to bottom,
-      var(--background) 3rem,
-      transparent 3rem
-    );
+    position: relative;
 
     a {
       display: block;
@@ -192,14 +199,18 @@ const {
       margin-inline: auto;
       border: 5px solid #fff;
       border-radius: 10px;
-      box-shadow:
-        0 1px 10px rgb(51 51 51 / 35%),
-        0 5px 10px rgba(51 51 51 / 15%);
+      box-shadow: var(--shadow-elevation-high);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      block-size: 4.5rem;
+      background-color: var(--header-background-color);
+      inset-block-start: 0;
+      inset-inline: 0;
+      box-shadow: var(--shadow-elevation-low);
     }
   }
 </style>
-
-<script is:inline define:vars={{ background }}>
-  document.body.style.setProperty('--page-accent-color', background);
-  document.body.style.setProperty('--logo-fill-color', '#faf0e1');
-</script>

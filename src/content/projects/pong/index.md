@@ -16,7 +16,7 @@ technologies:
   - React
   - Unity
 pattern: blueprint
-background: rgb(0, 0, 0)
+accent: rgb(0, 0, 0)
 repo: https://github.com/RadLikeWhoa/pong
 link: https://sacha.me/pong/
 end: 2017

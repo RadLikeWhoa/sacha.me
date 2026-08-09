@@ -51,8 +51,6 @@ import Layout from '@/layouts/Layout.astro';
     <dl>
       <dt>Languages</dt>
       <dd>HTML, CSS, JS, PHP, C#, Swift</dd>
-    </dl>
-    <dl>
       <dt>Tools, Frameworks, Libraries</dt>
       <dd>
         <a
@@ -114,8 +112,15 @@ import Layout from '@/layouts/Layout.astro';
 
 <style>
   article {
+    display: flex;
+    flex-direction: column;
     max-inline-size: var(--content-width);
     margin-inline: auto;
-    padding-block: 4.5rem 3rem;
+    padding-block: 4.5rem;
+    gap: 1.5rem;
+
+    :global(:is(h1, h2, h3)) {
+      margin-block-start: 1.5rem;
+    }
   }
 </style>

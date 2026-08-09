@@ -30,7 +30,7 @@ const article = (await getCollection('articles'))
               <li>
                 <IconWell
                   project={project}
-                  raised
+                  elevation="high"
                 />
               </li>
             ))}
@@ -42,8 +42,8 @@ const article = (await getCollection('articles'))
           </p>
           <Button
             href="/projects"
-            variant="secondary"
             raised
+            suffix="keyboard_double_arrow_right"
           >
             Discover more projects
           </Button>
@@ -56,7 +56,12 @@ const article = (await getCollection('articles'))
       <section class="section-articles">
         <h1 class="section-title">Latest article</h1>
         <ArticleTeaser article={article} />
-        <Button href="/articles">Read more articles</Button>
+        <Button
+          href="/articles"
+          suffix="keyboard_double_arrow_right"
+        >
+          Read more articles
+        </Button>
       </section>
     )
   }
@@ -72,7 +77,6 @@ const article = (await getCollection('articles'))
 
   .section-intro {
     > p {
-      margin-block-end: 0;
       font-size: 1.3rem;
       line-height: 1.54;
     }
@@ -86,7 +90,6 @@ const article = (await getCollection('articles'))
 
     > h1 {
       inline-size: 100%;
-      margin-block-end: 0;
       border-block-end: 5px solid;
       padding-block-end: 0.5rem;
     }
@@ -103,8 +106,6 @@ const article = (await getCollection('articles'))
     padding-inline: 1.5rem;
 
     > p {
-      margin-block-end: 0;
-      color: #faf0e1;
       text-align: center;
     }
 
@@ -113,8 +114,9 @@ const article = (await getCollection('articles'))
       position: absolute;
       z-index: -1;
       border-radius: 10px;
-      background-color: var(--color-brand);
+      background-color: #fdf9f2;
       inset: 3rem 0 1.5rem;
+      box-shadow: var(--shadow-elevation-low);
     }
   }
 

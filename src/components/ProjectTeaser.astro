@@ -11,29 +11,30 @@ const { project, alternate } = Astro.props;
 
 const {
   id,
-  data: { title, teaser, tags, date },
+  data: { title, teaser, date },
 } = project;
 ---
 
 <article class:list={[{ alternate }]}>
-  <IconWell project={project} />
-  <h1>
-    <a
-      href={`/projects/${id}`}
-      data-astro-prefetch
-    >
-      {title}
-    </a>
-  </h1>
-  <p>
-    <time>{date.toLocaleDateString('en-UK', { year: 'numeric' })}</time> – {
-      teaser
-    }
-  </p>
-  <ul>
-    {tags.map((tag) => <li>{tag}</li>)}
-  </ul>
-  <a href={`/projects/${project.id}`}>Read more</a>
+  <IconWell
+    project={project}
+    elevation="low"
+  />
+  <div class="content">
+    <h1>
+      <a
+        href={`/projects/${id}`}
+        data-astro-prefetch
+      >
+        {title}
+      </a>
+    </h1>
+    <p>
+      <time>{date.toLocaleDateString('en-UK', { year: 'numeric' })}</time> – {
+        teaser
+      }
+    </p>
+  </div>
 </article>
 
 <style>
@@ -41,28 +42,15 @@ const {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+  }
 
-    > :is(h1, p) {
-      margin-block-end: 0;
-    }
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   time {
     color: #aaa;
-  }
-
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    gap: 0.5rem;
-  }
-
-  li {
-    padding: 0.25rem 0.75rem;
-    border-radius: 10px;
-    background-color: #aaa;
   }
 </style>

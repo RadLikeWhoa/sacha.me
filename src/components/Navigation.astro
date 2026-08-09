@@ -2,8 +2,6 @@
 import Icon from './Icon.astro';
 
 const pathname = Astro.url.pathname;
-
-console.log(pathname);
 ---
 
 <nav>
@@ -13,8 +11,7 @@ console.log(pathname);
         href="/"
         class:list={[{ active: pathname === '/' }]}
       >
-        <span class="icon"><Icon>home</Icon></span>
-        <span class="label">Home</span>
+        <Icon>home</Icon> Home
       </a>
     </li>
     <li>
@@ -22,8 +19,7 @@ console.log(pathname);
         href="/projects"
         class:list={[{ active: pathname.startsWith('/projects') }]}
       >
-        <span class="icon"><Icon>work</Icon></span>
-        <span class="label">Projects</span>
+        <Icon>work</Icon> Projects
       </a>
     </li>
     <li>
@@ -31,8 +27,7 @@ console.log(pathname);
         href="/articles"
         class:list={[{ active: pathname.startsWith('/articles') }]}
       >
-        <span class="icon"><Icon>article</Icon></span>
-        <span class="label">Articles</span>
+        <Icon>article</Icon> Articles
       </a>
     </li>
     <li>
@@ -40,8 +35,7 @@ console.log(pathname);
         href="/about"
         class:list={[{ active: pathname.startsWith('/about') }]}
       >
-        <span class="icon"><Icon>person</Icon></span>
-        <span class="label">About</span>
+        <Icon>person</Icon> About
       </a>
     </li>
   </ol>
@@ -67,9 +61,10 @@ console.log(pathname);
       inline-size: calc(25% - 0.75rem);
       transition: translate 0.25s ease-in-out;
       border-radius: 10px;
-      background-color: var(--logo-fill-color, var(--color-brand));
+      background-color: var(--header-foreground-color, #fdf9f2);
       inset-block: 0;
       inset-inline-start: 0;
+      box-shadow: var(--shadow-elevation-low);
     }
 
     &:has(li:nth-child(1) a.active)::before {
@@ -117,23 +112,23 @@ console.log(pathname);
     block-size: 3rem;
     padding-inline: 0.5rem;
     transition: color 0.25s ease-in-out;
-    color: var(--logo-fill-color, var(--color-brand));
+    color: var(--header-foreground-color, var(--accent-color));
     text-decoration: none;
     gap: 0.5rem;
 
     &.active {
-      color: var(--page-accent-color, #faf0e1);
+      color: var(--accent-color, #faf0e1);
     }
 
     &:is(.active, :hover, :focus-visible) {
-      color: var(--page-accent-color, #faf0e1);
+      color: var(--accent-color, #faf0e1);
     }
 
     ol:has(a:is(:hover, :focus-visible)) & {
-      color: var(--logo-fill-color, var(--color-brand));
+      color: var(--header-foreground-color, var(--accent-color));
 
       &:is(:hover, :focus-visible) {
-        color: var(--page-accent-color, #faf0e1);
+        color: var(--accent-color, #faf0e1);
       }
     }
   }

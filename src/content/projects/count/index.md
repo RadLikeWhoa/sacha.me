@@ -15,7 +15,7 @@ technologies:
   - Cocoa
   - Realm
 pattern: zigzag
-background: rgb(76, 173, 235)
+accent: rgb(76, 173, 235)
 repo: https://github.com/RadLikeWhoa/count
 end: 2017
 team: 2
