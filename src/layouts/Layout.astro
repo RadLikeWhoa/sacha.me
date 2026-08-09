@@ -13,12 +13,22 @@ interface Props {
   seo?: ComponentProps<typeof SEO>;
 }
 
-const {
-  accent = '#009f4d',
-  headerBackgroundColor = '#faf0e1',
-  headerForegroundColor = '#009f4d',
-  seo,
-} = Astro.props;
+const { accent, headerBackgroundColor, headerForegroundColor, seo } =
+  Astro.props;
+
+const cssProperties: Record<string, string> = {};
+
+if (accent) {
+  cssProperties['--accent-color'] = accent;
+}
+
+if (headerBackgroundColor) {
+  cssProperties['--header-background-color'] = headerBackgroundColor;
+}
+
+if (headerForegroundColor) {
+  cssProperties['--header-foreground-color'] = headerForegroundColor;
+}
 ---
 
 <!doctype html>
@@ -59,16 +69,22 @@ const {
     />
     <Font cssVariable="--font-material-symbols" />
     <SEO {...seo} />
-    <style
-      is:global
-      define:vars={{
-        'accent-color': accent,
-      }}
-    >
+    <style is:global>
       :root {
         --border-radius: 10px;
 
-        --shadow-color: #ae997a;
+        --accent-color: #009f4d;
+        --background-color: #faf0e1;
+        --header-background-color: var(--background-color);
+        --header-foreground-color: var(--accent-color);
+
+        --text-color: #333;
+        --text-color-muted: #aaa;
+        --widget-color: hsl(from var(--background-color) h s calc(l + 5));
+
+        --shadow-color: hsl(
+          from var(--background-color) h calc(s - 45) calc(l - 35)
+        );
 
         --shadow-elevation-low:
           0px 0.6px 0.7px rgb(from var(--shadow-color) r g b / 34%),
@@ -109,8 +125,8 @@ const {
 
       body {
         margin: 0;
-        background-color: #faf0e1;
-        color: #333;
+        background-color: var(--background-color);
+        color: var(--text-color);
       }
 
       :is(h1, h2, h3, p, ul, ol, dl, pre) {
@@ -133,17 +149,18 @@ const {
       dl {
         padding: 0.5rem 1rem;
         border-radius: var(--border-radius);
-        background-color: #fdf9f2;
+        background-color: var(--widget-color);
         box-shadow: var(--shadow-elevation-low);
       }
 
       dt {
-        color: #aaa;
+        color: var(--text-color-muted);
 
         dd + & {
           margin-block-start: 0.5rem;
           padding-block-start: 0.5rem;
-          border-block-start: 1px solid #eadfcd;
+          border-block-start: 1px solid
+            hsl(from var(--background-color) h calc(s - 20) calc(l - 10));
         }
       }
 
@@ -152,12 +169,7 @@ const {
       }
     </style>
   </head>
-  <body
-    style={{
-      '--header-background-color': headerBackgroundColor,
-      '--header-foreground-color': headerForegroundColor,
-    }}
-  >
+  <body style={cssProperties}>
     <Header />
     <main>
       <slot />

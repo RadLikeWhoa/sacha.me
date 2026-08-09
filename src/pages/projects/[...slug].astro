@@ -37,7 +37,7 @@ const {
   seo={{ title, description: teaser, pubDate: date, type: 'project' }}
   accent={accent}
   headerBackgroundColor={accent}
-  headerForegroundColor="#fdf9f2"
+  headerForegroundColor="var(--background-color)"
 >
   <article>
     <header>
@@ -154,7 +154,7 @@ const {
     padding-block: 4.5rem;
     background-color: var(--header-background-color);
     gap: 0.5rem;
-    color: #faf0e1;
+    color: var(--header-foreground-color);
 
     h1 {
       padding-block-end: 0.5rem;
@@ -190,7 +190,7 @@ const {
       display: block;
       block-size: auto;
       inline-size: 100%;
-      border: 5px solid #fff;
+      border: 5px solid var(--widget-color);
       border-radius: var(--border-radius);
       box-shadow: var(--shadow-elevation-high);
     }

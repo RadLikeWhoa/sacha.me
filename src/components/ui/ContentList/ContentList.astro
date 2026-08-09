@@ -58,6 +58,7 @@ const isProject = (
   li:not(:last-child) {
     margin-block-end: 3rem;
     padding-block-end: 3rem;
-    border-block-end: 1px solid #f5e1c2;
+    border-block-end: 1px solid
+      hsl(from var(--background-color) h calc(s - 20) calc(l - 10));
   }
 </style>

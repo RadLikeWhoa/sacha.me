@@ -33,7 +33,7 @@ const { href, elevation } = Astro.props;
     transition: background-color 0.25s ease-in-out;
     border-radius: var(--border-radius);
     background-color: var(--accent-color);
-    color: #fdf9f2;
+    color: var(--widget-color);
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
@@ -42,7 +42,7 @@ const { href, elevation } = Astro.props;
 
     &:is(:hover, :focus-visible) {
       background-color: hsl(from var(--accent-color) h s calc(l - 10));
-      color: #fdf9f2;
+      color: var(--widget-color);
       text-decoration: none;
     }
   }
