@@ -18,8 +18,7 @@ const { cta, target } = Astro.props;
     </p>
     <Button
       href={target}
-      raised
-      suffix="keyboard_double_arrow_right"
+      elevation="high"
     >
       {cta}
     </Button>
@@ -35,7 +34,7 @@ const { cta, target } = Astro.props;
       content: '';
       position: absolute;
       z-index: -1;
-      border-radius: 10px;
+      border-radius: var(--border-radius);
       background-color: #fdf9f2;
       inset: 0 0 1.5rem;
       box-shadow: var(--shadow-elevation-low);

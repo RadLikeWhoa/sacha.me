@@ -18,11 +18,9 @@ technologies:
   - JavaScript
   - HTML
   - Sass
-pattern: cloth
 accent: rgb(235, 164, 76)
 link: https://sacha.me/Countable/
 repo: https://github.com/RadLikeWhoa/Countable
-team: 1
 teaser: 'Countable is a JavaScript library to add live paragraph-, word- and character-counting to an HTML element. I created it because I was unsatisfied with existing solutions for this problem.'
 hero: hero.png
 icon: icon.svg

@@ -37,7 +37,7 @@ const {
   </div>
 </article>
 
-<style define:vars={{ accent }}>
+<style define:vars={{ 'accent-color': accent }}>
   article {
     display: flex;
     flex-direction: column;
@@ -47,14 +47,14 @@ const {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
 
-      :global(> a) {
+      .icon-well {
         rotate: -1deg;
       }
 
       &.alternate {
         grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
 
-        :global(> a) {
+        .icon-well {
           rotate: 1deg;
         }
       }
@@ -74,7 +74,7 @@ const {
   }
 
   a {
-    color: var(--accent);
+    color: var(--accent-color);
   }
 
   time {

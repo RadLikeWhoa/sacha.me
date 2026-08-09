@@ -1,48 +1,25 @@
 ---
-import Icon from '../../Icon/Icon.astro';
-
-const isCurrentPath = (pathname: string, exact: boolean = false): boolean => {
-  if (exact) {
-    return pathname === Astro.url.pathname;
-  }
-
-  return Astro.url.pathname.startsWith(pathname);
-};
+import Link from './Link/Link.astro';
 ---
 
 <nav>
   <ol>
     <li>
-      <a
+      <Link
         href="/"
-        class:list={[{ active: isCurrentPath('/', true) }]}
+        exact
       >
-        <Icon>home</Icon> Home
-      </a>
+        Home
+      </Link>
     </li>
     <li>
-      <a
-        href="/projects"
-        class:list={[{ active: isCurrentPath('/projects') }]}
-      >
-        <Icon>work</Icon> Projects
-      </a>
+      <Link href="/projects">Projects</Link>
     </li>
     <li>
-      <a
-        href="/articles"
-        class:list={[{ active: isCurrentPath('/articles') }]}
-      >
-        <Icon>article</Icon> Articles
-      </a>
+      <Link href="/articles">Articles</Link>
     </li>
     <li>
-      <a
-        href="/about"
-        class:list={[{ active: isCurrentPath('/about') }]}
-      >
-        <Icon>person</Icon> About
-      </a>
+      <Link href="/about">About</Link>
     </li>
   </ol>
 </nav>
@@ -56,7 +33,6 @@ const isCurrentPath = (pathname: string, exact: boolean = false): boolean => {
     margin: 0;
     padding: 0;
     list-style: none;
-    gap: 1rem;
 
     &::before {
       content: '';
@@ -64,83 +40,56 @@ const isCurrentPath = (pathname: string, exact: boolean = false): boolean => {
       position: absolute;
       z-index: 0;
       block-size: 100%;
-      inline-size: calc(25% - 0.75rem);
-      transition: translate 0.25s ease-in-out;
-      border-radius: 10px;
+      inline-size: 25%;
+      transition:
+        translate 0.25s ease-in-out,
+        background-color 0.25s ease-in-out;
+      border-radius: var(--border-radius);
       background-color: var(--header-foreground-color, #fdf9f2);
       inset-block: 0;
       inset-inline-start: 0;
       box-shadow: var(--shadow-elevation-low);
     }
 
-    &:has(li:nth-child(1) a.active)::before {
-      translate: 0 0;
+    &:has(a:is(:hover, :focus-visible)) {
+      a {
+        color: var(--header-foreground-color);
+
+        &:is(:hover, :focus-visible) {
+          color: var(--header-background-color);
+        }
+      }
+
+      &::before {
+        background-color: hsl(from var(--accent-color) h s calc(l - 10));
+      }
     }
 
-    &:has(li:nth-child(2) a.active)::before {
-      translate: calc(100% + 1rem) 0;
-    }
-
-    &:has(li:nth-child(3) a.active)::before {
-      translate: calc(200% + 2rem) 0;
-    }
-
-    &:has(li:nth-child(4) a.active)::before {
-      translate: calc(300% + 3rem) 0;
-    }
-
+    /* stylelint-disable no-descending-specificity */
+    &:has(li:nth-child(1) .active)::before,
     &:has(li:nth-child(1) a:is(:hover, :focus-visible))::before {
       translate: 0 0;
     }
 
+    &:has(li:nth-child(2) .active)::before,
     &:has(li:nth-child(2) a:is(:hover, :focus-visible))::before {
-      translate: calc(100% + 1rem) 0;
+      translate: 100% 0;
     }
 
+    &:has(li:nth-child(3) .active)::before,
     &:has(li:nth-child(3) a:is(:hover, :focus-visible))::before {
-      translate: calc(200% + 2rem) 0;
+      translate: 200% 0;
     }
 
+    &:has(li:nth-child(4) .active)::before,
     &:has(li:nth-child(4) a:is(:hover, :focus-visible))::before {
-      translate: calc(300% + 3rem) 0;
+      translate: 300% 0;
     }
+    /* stylelint-enable no-descending-specificity */
   }
 
   li {
     position: relative;
     z-index: 1;
-  }
-
-  a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    block-size: 3rem;
-    padding-inline: 0.5rem;
-    transition: color 0.25s ease-in-out;
-    border-radius: 10px;
-    color: var(--header-foreground-color, var(--accent-color));
-    text-decoration: none;
-    gap: 0.5rem;
-
-    &.active {
-      color: var(--header-text-color, #faf0e1);
-    }
-
-    &:is(:hover, :focus-visible) {
-      text-decoration: none;
-    }
-
-    &:is(.active, :hover, :focus-visible) {
-      color: var(--header-text-color, #faf0e1);
-    }
-
-    ol:has(a:is(:hover, :focus-visible)) & {
-      color: var(--header-foreground-color, var(--accent-color));
-
-      &:is(:hover, :focus-visible) {
-        color: var(--header-text-color, #faf0e1);
-      }
-    }
   }
 </style>

@@ -29,7 +29,6 @@ const {
   tags,
   tasks,
   technologies,
-  end,
   accent,
 } = project.data;
 ---
@@ -39,8 +38,6 @@ const {
   accent={accent}
   headerBackgroundColor={accent}
   headerForegroundColor="#fdf9f2"
-  headerTextColor={accent}
-  logoColor="#fdf9f2"
 >
   <article>
     <header>
@@ -78,16 +75,8 @@ const {
     <Container>
       <div class="content">
         <dl>
-          <dt>Started</dt>
+          <dt>Year</dt>
           <dd>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dd>
-          {
-            end && (
-              <>
-                <dt>Ended</dt>
-                <dd>{end}</dd>
-              </>
-            )
-          }
           {
             repo && (
               <>
@@ -150,7 +139,7 @@ const {
       display: block;
       block-size: auto;
       inline-size: 100%;
-      border-radius: 10px;
+      border-radius: var(--border-radius);
       box-shadow: var(--shadow-elevation-low);
     }
 
@@ -202,7 +191,7 @@ const {
       block-size: auto;
       inline-size: 100%;
       border: 5px solid #fff;
-      border-radius: 10px;
+      border-radius: var(--border-radius);
       box-shadow: var(--shadow-elevation-high);
     }
 

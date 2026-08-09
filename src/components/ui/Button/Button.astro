@@ -1,32 +1,24 @@
 ---
-import Icon from '../Icon/Icon.astro';
-
 interface Props {
   href?: string;
-  raised?: boolean;
-  prefix?: string;
-  suffix?: string;
+  elevation?: 'low' | 'high';
 }
 
-const { href, raised, prefix, suffix } = Astro.props;
+const { href, elevation } = Astro.props;
 ---
 
 {
   href ? (
     <a
       href={href}
-      class:list={[{ raised }]}
+      class:list={[elevation]}
       data-astro-prefetch
     >
-      {prefix && <Icon>{prefix}</Icon>}
       <slot />
-      {suffix && <Icon>{suffix}</Icon>}
     </a>
   ) : (
-    <button class:list={[{ raised }]}>
-      {prefix && <Icon>{prefix}</Icon>}
+    <button class:list={[elevation]}>
       <slot />
-      {suffix && <Icon>{suffix}</Icon>}
     </button>
   )
 }
@@ -38,7 +30,8 @@ const { href, raised, prefix, suffix } = Astro.props;
     position: relative;
     align-items: center;
     padding: 0.75rem 1.5rem;
-    border-radius: 10px;
+    transition: background-color 0.25s ease-in-out;
+    border-radius: var(--border-radius);
     background-color: var(--accent-color);
     color: #fdf9f2;
     font-weight: 700;
@@ -48,11 +41,17 @@ const { href, raised, prefix, suffix } = Astro.props;
     appearance: none;
 
     &:is(:hover, :focus-visible) {
+      background-color: hsl(from var(--accent-color) h s calc(l - 10));
+      color: #fdf9f2;
       text-decoration: none;
     }
   }
 
-  .raised {
+  .low {
+    box-shadow: var(--shadow-elevation-low);
+  }
+
+  .high {
     box-shadow: var(--shadow-elevation-high);
   }
 </style>

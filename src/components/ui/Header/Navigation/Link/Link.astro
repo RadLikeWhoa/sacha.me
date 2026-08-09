@@ -1,0 +1,45 @@
+---
+interface Props {
+  href: string;
+  exact?: boolean;
+}
+
+const { href, exact = false } = Astro.props;
+const { pathname } = Astro.url;
+
+const active = exact ? pathname === href : pathname.includes(href);
+---
+
+<a
+  href={href}
+  class:list={[{ active }]}
+>
+  <slot />
+</a>
+
+<style>
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    block-size: 3rem;
+    padding-inline: 1rem;
+    transition: color 0.25s ease-in-out;
+    border-radius: var(--border-radius);
+    color: var(--header-foreground-color);
+    text-decoration: none;
+    gap: 0.5rem;
+
+    &.active {
+      color: var(--header-background-color);
+    }
+
+    &:is(:hover, :focus-visible) {
+      text-decoration: none;
+    }
+
+    &:is(.active, :hover, :focus-visible) {
+      color: var(--header-background-color);
+    }
+  }
+</style>

@@ -8,13 +8,13 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "typecheck && astro build",
+    "build": "pnpm typecheck && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier . -c --write",
     "format:check": "prettier . -l",
-    "lint": "eslint src && stylelint src/**/*.{css,astro}",
-    "lint:fix": "eslint src --fix && stylelint src/**/*.{css,astro} --fix",
+    "lint": "eslint src/**/*.{ts,astro} && stylelint src/**/*.{css,astro}",
+    "lint:fix": "eslint src/**/*.{ts,astro} --fix && stylelint src/**/*.{css,astro} --fix",
     "typecheck": "astro check"
   },
   "dependencies": {
@@ -30,12 +30,13 @@
     "postcss-html": "~2.0.0",
     "prettier": "~3.9.6",
     "prettier-plugin-astro": "~0.14.1",
+    "sharp": "~0.35.3",
     "stylelint": "~17.14.1",
     "stylelint-config-html": "~2.0.0",
-    "stylelint-config-property-sort-order-smacss": "^11.2.0",
+    "stylelint-config-property-sort-order-smacss": "~11.2.0",
     "stylelint-config-recommended": "~18.0.0",
-    "stylelint-order": "^8.1.1",
-    "stylelint-use-logical": "^2.1.3",
+    "stylelint-order": "~8.1.1",
+    "stylelint-use-logical": "~2.1.3",
     "typescript": "~6.0.3",
     "typescript-eslint": "~8.66.0"
   }

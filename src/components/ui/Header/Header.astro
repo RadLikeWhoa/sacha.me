@@ -20,7 +20,7 @@ import Navigation from './Navigation/Navigation.astro';
 
 <style>
   header {
-    padding-block-start: 1.5rem;
+    padding-block-start: 3rem;
     background-color: var(--header-background-color, transparent);
   }
 
@@ -31,9 +31,13 @@ import Navigation from './Navigation/Navigation.astro';
   }
 
   a {
+    --logo-color: var(--header-foreground-color);
+
     display: inline-block;
 
     &:is(:hover, :focus-visible) {
+      --logo-color: hsl(from var(--header-foreground-color) h s calc(l - 10));
+
       animation: boink 0.25s ease-in-out;
     }
   }

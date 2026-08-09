@@ -1,6 +1,8 @@
 ---
 import Container from '@/components/ui/Container/Container.astro';
 import Layout from '@/layouts/Layout.astro';
+
+const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
 ---
 
 <Layout>
@@ -109,6 +111,10 @@ import Layout from '@/layouts/Layout.astro';
           the site's source
         </a>.
       </p>
+      <p>
+        All content, unless otherwise noted, was created by Sacha Schmid.
+        Copyright © 2013 – {year}.
+      </p>
     </article>
   </Container>
 </Layout>
@@ -117,8 +123,6 @@ import Layout from '@/layouts/Layout.astro';
   article {
     display: flex;
     flex-direction: column;
-    max-inline-size: var(--content-width);
-    margin-inline: auto;
     padding-block: 4.5rem;
     gap: 1.5rem;
 

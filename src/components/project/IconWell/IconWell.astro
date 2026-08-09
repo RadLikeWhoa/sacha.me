@@ -28,14 +28,19 @@ const {
   a {
     display: block;
     block-size: fit-content;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
   }
 
   .icon-well {
     display: grid;
-    border-radius: 10px;
-    place-content: center;
+    transition: background-color 0.25s ease-in-out;
+    border-radius: var(--border-radius);
     background-color: var(--accent);
+    place-content: center;
+
+    a:is(:hover, :focus-visible) & {
+      background-color: hsl(from var(--accent) h s calc(l - 10));
+    }
   }
 
   .low {

@@ -15,12 +15,9 @@ technologies:
   - CSS
   - React
   - Unity
-pattern: blueprint
 accent: rgb(0, 0, 0)
 repo: https://github.com/RadLikeWhoa/pong
 link: https://sacha.me/pong/
-end: 2017
-team: 2
 teaser: 'In a game all about out-bluffing the opponent, players face each other in a new take on Pong. This simple yet addictive game focuses on the interaction between two players and explores how well they know each other.'
 hero: hero.png
 icon: icon.svg

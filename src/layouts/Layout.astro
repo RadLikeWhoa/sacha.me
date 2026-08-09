@@ -8,17 +8,13 @@ interface Props {
   accent?: string;
   headerBackgroundColor?: string;
   headerForegroundColor?: string;
-  headerTextColor?: string;
-  logoColor?: string;
 }
 
 const {
   title,
   accent = '#009f4d',
-  headerBackgroundColor,
+  headerBackgroundColor = '#faf0e1',
   headerForegroundColor = '#009f4d',
-  headerTextColor = '#fdf9f2',
-  logoColor,
 } = Astro.props;
 ---
 
@@ -44,23 +40,11 @@ const {
     <style
       is:global
       define:vars={{
-        accent,
-        'header-background-color': headerBackgroundColor,
-        'header-foreground-color': headerForegroundColor,
-        'header-text-color': headerTextColor,
-        'logo-color': logoColor,
+        'accent-color': accent,
       }}
     >
       :root {
-        --accent-color: var(--accent);
-
-        --header-foreground-color: var(--header-foreground-color);
-        --header-background-color: var(--header-background-color);
-        --header-text-color: var(--header-text-color);
-
-        --logo-color: var(--logo-color);
-
-        --content-width: 75ch;
+        --border-radius: 10px;
 
         --shadow-color: #ae997a;
 
@@ -95,6 +79,10 @@ const {
         @media (min-width: 45rem) {
           font-size: 125%;
         }
+
+        @media (min-width: 60rem) {
+          font-size: 137.5%;
+        }
       }
 
       body {
@@ -108,40 +96,46 @@ const {
       }
 
       a {
+        transition:
+          color 0.25s ease-in-out,
+          text-decoration-color 0.25s ease-in-out;
         color: var(--accent-color);
-        text-decoration: none;
+        text-decoration-color: transparent;
 
         &:is(:hover, :focus-visible) {
-          text-decoration: underline;
+          color: hsl(from var(--accent-color) h s calc(l - 10));
+          text-decoration-color: currentColor;
         }
       }
 
       dl {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
-        padding: 0;
-        border-radius: 10px;
+        padding: 0.5rem 1rem;
+        border-radius: var(--border-radius);
         background-color: #fdf9f2;
         box-shadow: var(--shadow-elevation-low);
       }
 
-      :is(dt, dd):not(:nth-last-child(-n + 2)) {
-        border-block-end: 1px solid #f5e1c2;
-      }
-
       dt {
-        padding: 0.25rem 0.75rem;
         color: #aaa;
-        border-inline-end: 1px solid #f5e1c2;
+
+        dd + & {
+          margin-block-start: 0.5rem;
+          padding-block-start: 0.5rem;
+          border-block-start: 1px solid #eadfcd;
+        }
       }
 
       dd {
         margin: 0;
-        padding: 0.25rem 0.75rem;
       }
     </style>
   </head>
-  <body>
+  <body
+    style={{
+      '--header-background-color': headerBackgroundColor,
+      '--header-foreground-color': headerForegroundColor,
+    }}
+  >
     <Header />
     <main>
       <slot />

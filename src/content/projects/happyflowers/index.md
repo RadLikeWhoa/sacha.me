@@ -29,13 +29,9 @@ technologies:
   - Web Sockets
   - I2C
   - GPIO
-pattern: dots
 accent: rgb(130, 145, 154)
-client: Insititue of Mobile and Distributed Systems
 repo: https://github.com/RadLikeWhoa/happyflowers
 link: https://sacha.me/happyflowers/
-end: 2017
-team: 2
 teaser: "happyflowers solves the problem of dried out household plants. A Raspberry Pi monitors a plant's moisture and automatically waters it, should it be needed. An elegant dashboard provides insights into the plant's health and helps owners get to know their plants better."
 hero: hero.png
 icon: icon.svg
