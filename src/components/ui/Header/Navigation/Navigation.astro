@@ -1,7 +1,13 @@
 ---
 import Icon from '../../Icon/Icon.astro';
 
-const pathname = Astro.url.pathname;
+const isCurrentPath = (pathname: string, exact: boolean = false): boolean => {
+  if (exact) {
+    return pathname === Astro.url.pathname;
+  }
+
+  return Astro.url.pathname.startsWith(pathname);
+};
 ---
 
 <nav>
@@ -9,7 +15,7 @@ const pathname = Astro.url.pathname;
     <li>
       <a
         href="/"
-        class:list={[{ active: pathname === '/' }]}
+        class:list={[{ active: isCurrentPath('/', true) }]}
       >
         <Icon>home</Icon> Home
       </a>
@@ -17,7 +23,7 @@ const pathname = Astro.url.pathname;
     <li>
       <a
         href="/projects"
-        class:list={[{ active: pathname.startsWith('/projects') }]}
+        class:list={[{ active: isCurrentPath('/projects') }]}
       >
         <Icon>work</Icon> Projects
       </a>
@@ -25,7 +31,7 @@ const pathname = Astro.url.pathname;
     <li>
       <a
         href="/articles"
-        class:list={[{ active: pathname.startsWith('/articles') }]}
+        class:list={[{ active: isCurrentPath('/articles') }]}
       >
         <Icon>article</Icon> Articles
       </a>
@@ -33,7 +39,7 @@ const pathname = Astro.url.pathname;
     <li>
       <a
         href="/about"
-        class:list={[{ active: pathname.startsWith('/about') }]}
+        class:list={[{ active: isCurrentPath('/about') }]}
       >
         <Icon>person</Icon> About
       </a>
