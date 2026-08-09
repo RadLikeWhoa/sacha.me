@@ -11,7 +11,7 @@ const { project, alternate } = Astro.props;
 
 const {
   id,
-  data: { title, teaser, date },
+  data: { title, teaser, date, accent },
 } = project;
 ---
 
@@ -37,17 +37,44 @@ const {
   </div>
 </article>
 
-<style>
+<style define:vars={{ accent }}>
   article {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    @container content-list (min-inline-size: 30rem) {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+
+      :global(> a) {
+        rotate: -1deg;
+      }
+
+      &.alternate {
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+
+        :global(> a) {
+          rotate: 1deg;
+        }
+      }
+    }
   }
 
   .content {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
+    @container content-list (min-inline-size: 30rem) {
+      .alternate & {
+        order: -1;
+      }
+    }
+  }
+
+  a {
+    color: var(--accent);
   }
 
   time {

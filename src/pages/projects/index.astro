@@ -1,48 +1,11 @@
 ---
-import ProjectTeaser from '@/components/project/ProjectTeaser/ProjectTeaser.astro';
+import Container from '@/components/ui/Container/Container.astro';
+import ContentList from '@/components/ui/ContentList/ContentList.astro';
 import Layout from '@/layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-const projects = (await getCollection('projects')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
 ---
 
 <Layout title="Projects">
-  <section>
-    <ol>
-      {
-        projects.map((project, index) => (
-          <li>
-            <ProjectTeaser
-              project={project}
-              alternate={index % 2 === 0}
-            />
-          </li>
-        ))
-      }
-    </ol>
-  </section>
+  <Container>
+    <ContentList collection="projects" />
+  </Container>
 </Layout>
-
-<style>
-  section {
-    max-inline-size: var(--content-width);
-    margin-inline: auto;
-    padding-block: 4.5rem;
-  }
-
-  ol {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  li:not(:last-child) {
-    margin-block-end: 3rem;
-    padding-block-end: 3rem;
-    border-block-end: 1px solid #f5e1c2;
-  }
-</style>

@@ -46,6 +46,10 @@ const { href, raised, prefix, suffix } = Astro.props;
     cursor: pointer;
     gap: 0.5rem;
     appearance: none;
+
+    &:is(:hover, :focus-visible) {
+      text-decoration: none;
+    }
   }
 
   .raised {

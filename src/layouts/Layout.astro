@@ -8,13 +8,17 @@ interface Props {
   accent?: string;
   headerBackgroundColor?: string;
   headerForegroundColor?: string;
+  headerTextColor?: string;
+  logoColor?: string;
 }
 
 const {
   title,
   accent = '#009f4d',
   headerBackgroundColor,
-  headerForegroundColor,
+  headerForegroundColor = '#009f4d',
+  headerTextColor = '#fdf9f2',
+  logoColor,
 } = Astro.props;
 ---
 
@@ -43,6 +47,8 @@ const {
         accent,
         'header-background-color': headerBackgroundColor,
         'header-foreground-color': headerForegroundColor,
+        'header-text-color': headerTextColor,
+        'logo-color': logoColor,
       }}
     >
       :root {
@@ -50,6 +56,9 @@ const {
 
         --header-foreground-color: var(--header-foreground-color);
         --header-background-color: var(--header-background-color);
+        --header-text-color: var(--header-text-color);
+
+        --logo-color: var(--logo-color);
 
         --content-width: 75ch;
 
@@ -100,6 +109,11 @@ const {
 
       a {
         color: var(--accent-color);
+        text-decoration: none;
+
+        &:is(:hover, :focus-visible) {
+          text-decoration: underline;
+        }
       }
 
       dl {

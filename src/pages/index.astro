@@ -2,6 +2,7 @@
 import ArticleTeaser from '@/components/article/ArticleTeaser/ArticleTeaser.astro';
 import IconWell from '@/components/project/IconWell/IconWell.astro';
 import Button from '@/components/ui/Button/Button.astro';
+import Container from '@/components/ui/Container/Container.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -15,63 +16,62 @@ const article = (await getCollection('articles'))
 ---
 
 <Layout>
-  <section class="section-intro">
-    <p>
-      Hi there, my name is <b>Sacha</b> and I am a front-end developer and designer.
-      I design and build websites and applications using modern technologies and methodologies.
-    </p>
-  </section>
-  {
-    projects && (
-      <section class="section-projects">
-        <div class="projects">
-          <ol class="projects-list">
-            {projects.map((project) => (
+  <Container>
+    <section class="section-intro">
+      <p>
+        Hi there, my name is <b>Sacha</b> and I am a front-end developer and designer.
+        I design and build websites and applications using modern technologies and
+        methodologies.
+      </p>
+    </section>
+    <section class="section-projects">
+      <div class="projects">
+        <ol class="projects-list">
+          {
+            projects.map((project) => (
               <li>
                 <IconWell
                   project={project}
                   elevation="high"
                 />
               </li>
-            ))}
-          </ol>
-          <p>
-            This is a selection of some of my latest projects. You can read a
-            detailed case study on all of them or you can check out a list of
-            all my past and current projects.
-          </p>
-          <Button
-            href="/projects"
-            raised
-            suffix="keyboard_double_arrow_right"
-          >
-            Discover more projects
-          </Button>
-        </div>
-      </section>
-    )
-  }
-  {
-    article && (
-      <section class="section-articles">
-        <h1 class="section-title">Latest article</h1>
-        <ArticleTeaser article={article} />
+            ))
+          }
+        </ol>
+        <p>
+          This is a selection of some of my latest projects. You can read a
+          detailed case study on all of them or you can check out a list of all
+          my past and current projects.
+        </p>
         <Button
-          href="/articles"
+          href="/projects"
+          raised
           suffix="keyboard_double_arrow_right"
         >
-          Read more articles
+          Discover more projects
         </Button>
-      </section>
-    )
-  }
+      </div>
+    </section>
+    {
+      article && (
+        <section class="section-articles">
+          <h1 class="section-title">Latest article</h1>
+          <ArticleTeaser article={article} />
+          <Button
+            href="/articles"
+            suffix="keyboard_double_arrow_right"
+          >
+            Read more articles
+          </Button>
+        </section>
+      )
+    }
+  </Container>
 </Layout>
 
 <style>
   .section-intro,
   .section-articles {
-    max-inline-size: var(--content-width);
-    margin-inline: auto;
     padding-block: 4.5rem;
   }
 
@@ -123,15 +123,23 @@ const article = (await getCollection('articles'))
 
   .projects-list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     inline-size: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
     gap: 1.5rem;
 
-    @container projects (max-inline-size: 30rem) {
-      grid-template-columns: 1fr;
+    @container projects (min-inline-size: 30rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+
+      li:first-child > :global(a) {
+        rotate: -1deg;
+      }
+
+      li:last-child > :global(a) {
+        rotate: 1deg;
+      }
     }
   }
 </style>

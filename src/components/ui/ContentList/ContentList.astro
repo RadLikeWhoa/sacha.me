@@ -1,0 +1,63 @@
+---
+import {
+  getCollection,
+  type CollectionEntry,
+  type DataEntryMap,
+} from 'astro:content';
+import ArticleTeaser from '../../article/ArticleTeaser/ArticleTeaser.astro';
+import ProjectTeaser from '../../project/ProjectTeaser/ProjectTeaser.astro';
+
+interface Props {
+  collection: keyof DataEntryMap;
+}
+
+const { collection } = Astro.props;
+
+const items = (await getCollection(collection)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const isProject = (
+  item: CollectionEntry<'projects' | 'articles'>,
+): item is CollectionEntry<'projects'> => {
+  return 'icon' in (item as CollectionEntry<'projects'>).data;
+};
+---
+
+<section>
+  <ol>
+    {
+      items.map((item, index) => (
+        <li>
+          {isProject(item) ? (
+            <ProjectTeaser
+              project={item}
+              alternate={index % 2 === 0}
+            />
+          ) : (
+            <ArticleTeaser article={item} />
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</section>
+
+<style>
+  section {
+    container: content-list / inline-size;
+    padding-block: 4.5rem;
+  }
+
+  ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li:not(:last-child) {
+    margin-block-end: 3rem;
+    padding-block-end: 3rem;
+    border-block-end: 1px solid #f5e1c2;
+  }
+</style>

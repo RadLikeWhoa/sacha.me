@@ -1,19 +1,23 @@
-<footer>
-  <a href="/rss.xml">RSS</a>
-  ·
-  <a href="https://github.com/RadLikeWhoa/radlikwhoa.github.io">GitHub</a>
-</footer>
+---
+import Container from '../Container/Container.astro';
+---
+
+<Container>
+  <footer>
+    <a href="/rss.xml">RSS</a>
+    ·
+    <a href="https://github.com/RadLikeWhoa/radlikwhoa.github.io">GitHub</a>
+  </footer>
+</Container>
 
 <style>
   footer {
     display: flex;
-    max-inline-size: var(--content-width);
     margin-block-end: 1.5rem;
-    margin-inline: auto;
     padding: 1.5rem;
     border-radius: 10px;
     background-color: #fdf9f2;
-    gap: 0.5rem;
     box-shadow: var(--shadow-elevation-low);
+    gap: 0.5rem;
   }
 </style>

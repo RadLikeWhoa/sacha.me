@@ -1,5 +1,6 @@
 ---
 import ContactTeaser from '@/components/ui/ContactTeaser/ContactTeaser.astro';
+import Container from '@/components/ui/Container/Container.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
@@ -38,95 +39,103 @@ const {
   accent={accent}
   headerBackgroundColor={accent}
   headerForegroundColor="#fdf9f2"
+  headerTextColor={accent}
+  logoColor="#fdf9f2"
 >
   <article>
     <header>
-      <div class="header-content">
-        <h1>{title}</h1>
-        <p>{teaser}</p>
-      </div>
+      <Container>
+        <div class="header-content">
+          <h1>{title}</h1>
+          <p>{teaser}</p>
+        </div>
+      </Container>
     </header>
     <div class="hero-image">
-      {
-        link ? (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+      <Container>
+        {
+          link ? (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src={hero}
+                alt={title}
+                loading="eager"
+              />
+            </a>
+          ) : (
             <Image
               src={hero}
               alt={title}
-              loading="eager"
             />
-          </a>
-        ) : (
-          <Image
-            src={hero}
-            alt={title}
-          />
-        )
-      }
+          )
+        }
+      </Container>
     </div>
-    <div class="content">
-      <dl>
-        <dt>Started</dt>
-        <dd>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dd>
-        {
-          end && (
-            <>
-              <dt>Ended</dt>
-              <dd>{end}</dd>
-            </>
-          )
-        }
-        {
-          repo && (
-            <>
-              <dt>Repository</dt>
-              <dd>
-                <a
-                  href={repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {repo}
-                </a>
-              </dd>
-            </>
-          )
-        }
-        {
-          link && (
-            <>
-              <dt>URL</dt>
-              <dd>
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link}
-                </a>
-              </dd>
-            </>
-          )
-        }
-        <dt>Tags</dt>
-        <dd>{tags.join(', ')}</dd>
-      </dl>
-      <Content />
-      <dl>
-        <dt>Tasks</dt>
-        <dd>{tasks.join(', ')}</dd>
-        <dt>Technologies</dt>
-        <dd>{technologies.join(', ')}</dd>
-      </dl>
-      <ContactTeaser
-        cta="Discover more projects"
-        target="/projects"
-      />
-    </div>
+    <Container>
+      <div class="content">
+        <dl>
+          <dt>Started</dt>
+          <dd>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dd>
+          {
+            end && (
+              <>
+                <dt>Ended</dt>
+                <dd>{end}</dd>
+              </>
+            )
+          }
+          {
+            repo && (
+              <>
+                <dt>Repository</dt>
+                <dd>
+                  <a
+                    href={repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {repo}
+                  </a>
+                </dd>
+              </>
+            )
+          }
+          {
+            link && (
+              <>
+                <dt>URL</dt>
+                <dd>
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {link}
+                  </a>
+                </dd>
+              </>
+            )
+          }
+          <dt>Tags</dt>
+          <dd>{tags.join(', ')}</dd>
+        </dl>
+        <Content />
+        <dl>
+          <dt>Tasks</dt>
+          <dd>{tasks.join(', ')}</dd>
+          <dt>Technologies</dt>
+          <dd>{technologies.join(', ')}</dd>
+        </dl>
+        <ContactTeaser
+          cta="Discover more projects"
+          target="/projects"
+        />
+      </div>
+    </Container>
   </article>
 </Layout>
 
@@ -135,8 +144,6 @@ const {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-inline-size: var(--content-width);
-    margin-inline: auto;
     padding-block: 4.5rem;
 
     :global(p > img) {
@@ -178,8 +185,6 @@ const {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    max-inline-size: var(--content-width);
-    margin-inline: auto;
   }
 
   .hero-image {
@@ -196,8 +201,6 @@ const {
       display: block;
       block-size: auto;
       inline-size: 100%;
-      max-inline-size: var(--content-width);
-      margin-inline: auto;
       border: 5px solid #fff;
       border-radius: 10px;
       box-shadow: var(--shadow-elevation-high);

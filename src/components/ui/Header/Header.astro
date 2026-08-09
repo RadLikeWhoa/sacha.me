@@ -1,18 +1,21 @@
 ---
 import Logo from '@/assets/logo.svg';
+import Container from '../Container/Container.astro';
 import Navigation from './Navigation/Navigation.astro';
 ---
 
 <header>
-  <div class="content">
-    <a
-      href="/"
-      data-astro-prefetch
-    >
-      <Logo />
-    </a>
-    <Navigation />
-  </div>
+  <Container>
+    <div class="content">
+      <a
+        href="/"
+        data-astro-prefetch
+      >
+        <Logo />
+      </a>
+      <Navigation />
+    </div>
+  </Container>
 </header>
 
 <style>
@@ -25,12 +28,14 @@ import Navigation from './Navigation/Navigation.astro';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-inline-size: var(--content-width);
-    margin-inline: auto;
   }
 
   a {
     display: inline-block;
+
+    &:is(:hover, :focus-visible) {
+      animation: boink 0.25s ease-in-out;
+    }
   }
 
   svg {
@@ -38,10 +43,6 @@ import Navigation from './Navigation/Navigation.astro';
     block-size: 3rem;
     inline-size: 3rem;
     will-change: transform;
-
-    &:is(:hover, :focus-visible) {
-      animation: boink 0.25s ease-in-out;
-    }
   }
 
   @keyframes boink {
