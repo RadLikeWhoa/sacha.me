@@ -1,0 +1,91 @@
+---
+import { SITE_METADATA } from '@/consts';
+import { generateJsonLd } from '@/utils/json-ld';
+
+interface Props {
+  title?: string;
+  description?: string;
+  type?: 'website' | 'article' | 'project';
+  pubDate?: Date;
+  updatedDate?: Date;
+}
+
+const {
+  title,
+  description,
+  type = 'website',
+  pubDate,
+  updatedDate,
+} = Astro.props;
+
+const resolvedTitle = title
+  ? `${title} — ${SITE_METADATA.title}`
+  : SITE_METADATA.title;
+
+const resolvedDescription = description || SITE_METADATA.description;
+
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || SITE_METADATA.url,
+);
+
+const jsonLdString = generateJsonLd({
+  type,
+  title: resolvedTitle,
+  description: resolvedDescription,
+  url: canonicalURL.toString(),
+  pubDate,
+  updatedDate,
+});
+---
+
+<title>{resolvedTitle}</title>
+<meta
+  name="title"
+  content={resolvedTitle}
+/>
+<meta
+  name="description"
+  content={resolvedDescription}
+/>
+<link
+  rel="canonical"
+  href={canonicalURL}
+/>
+<meta
+  property="og:type"
+  content={type === 'article' ? 'article' : 'website'}
+/>
+<meta
+  property="og:url"
+  content={canonicalURL}
+/>
+<meta
+  property="og:title"
+  content={resolvedTitle}
+/>
+<meta
+  property="og:description"
+  content={resolvedDescription}
+/>
+<meta
+  property="twitter:card"
+  content="summary"
+/>
+<meta
+  property="twitter:url"
+  content={canonicalURL}
+/>
+<meta
+  property="twitter:title"
+  content={resolvedTitle}
+/>
+<meta
+  property="twitter:description"
+  content={resolvedDescription}
+/>
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={jsonLdString}
+/>

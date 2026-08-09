@@ -16,11 +16,11 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'articles'>;
 
 const article = Astro.props;
-const { title, date } = article.data;
+const { title, date, teaser } = article.data;
 const { Content } = await render(article);
 ---
 
-<Layout title={title}>
+<Layout seo={{ title, description: teaser, pubDate: date, type: 'article' }}>
   <Container>
     <article>
       <header>

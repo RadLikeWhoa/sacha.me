@@ -1,20 +1,23 @@
 ---
+import SEO from '@/components/seo/SEO/SEO.astro';
 import Footer from '@/components/ui/Footer/Footer.astro';
 import Header from '@/components/ui/Header/Header.astro';
+import type { ComponentProps } from 'astro/types';
 import { Font } from 'astro:assets';
+import { SITE_METADATA } from '../consts';
 
 interface Props {
-  title?: string;
   accent?: string;
   headerBackgroundColor?: string;
   headerForegroundColor?: string;
+  seo?: ComponentProps<typeof SEO>;
 }
 
 const {
-  title,
   accent = '#009f4d',
   headerBackgroundColor = '#faf0e1',
   headerForegroundColor = '#009f4d',
+  seo,
 } = Astro.props;
 ---
 
@@ -26,17 +29,36 @@ const {
       name="viewport"
       content="width=device-width"
     />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/favicon.svg"
+    <meta
+      name="robots"
+      content="index, follow"
+    />
+    <meta
+      name="theme-color"
+      content="#009f4d"
     />
     <link
       rel="icon"
       href="/favicon.ico"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="/favicon.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="/apple-touch-icon.png"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE_METADATA.title}
+      href="/rss.xml"
     />
     <Font cssVariable="--font-material-symbols" />
-    <title>{title ? `${title} — Sacha Schmid` : 'Sacha Schmid'}</title>
+    <SEO {...seo} />
     <style
       is:global
       define:vars={{

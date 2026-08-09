@@ -4,7 +4,12 @@ import ContentList from '@/components/ui/ContentList/ContentList.astro';
 import Layout from '@/layouts/Layout.astro';
 ---
 
-<Layout title="Articles">
+<Layout
+  seo={{
+    title: 'Articles',
+    description: 'Read through my collection of articles.',
+  }}
+>
   <Container>
     <ContentList collection="articles" />
   </Container>

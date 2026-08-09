@@ -5,7 +5,12 @@ import Layout from '@/layouts/Layout.astro';
 const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
 ---
 
-<Layout>
+<Layout
+  seo={{
+    title: 'About me',
+    description: 'Read more about myself, my interests, and my qualifications.',
+  }}
+>
   <Container>
     <article>
       <p>
