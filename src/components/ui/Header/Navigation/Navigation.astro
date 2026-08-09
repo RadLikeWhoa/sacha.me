@@ -51,6 +51,11 @@ import Link from './Link/Link.astro';
       box-shadow: var(--shadow-elevation-low);
     }
 
+    &:not(:has(.active))::before {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
     &:has(a:is(:hover, :focus-visible)) {
       a {
         color: var(--header-foreground-color);
