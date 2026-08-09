@@ -66,7 +66,9 @@ import Link from './Link/Link.astro';
       }
 
       &::before {
-        background-color: hsl(from var(--accent-color) h s calc(l - 10));
+        background-color: hsl(
+          from var(--header-foreground-color) h s calc(l - 10)
+        );
       }
     }
 
