@@ -1,5 +1,5 @@
 ---
-import ContactTeaser from '@/components/ContactTeaser.astro';
+import ContactTeaser from '@/components/ui/ContactTeaser/ContactTeaser.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
@@ -195,6 +195,7 @@ const {
     img {
       display: block;
       block-size: auto;
+      inline-size: 100%;
       max-inline-size: var(--content-width);
       margin-inline: auto;
       border: 5px solid #fff;

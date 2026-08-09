@@ -1,7 +1,7 @@
 ---
-import ArticleTeaser from '@/components/ArticleTeaser.astro';
-import Button from '@/components/Button.astro';
-import IconWell from '@/components/IconWell.astro';
+import ArticleTeaser from '@/components/article/ArticleTeaser/ArticleTeaser.astro';
+import IconWell from '@/components/project/IconWell/IconWell.astro';
+import Button from '@/components/ui/Button/Button.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -96,6 +96,7 @@ const article = (await getCollection('articles'))
   }
 
   .projects {
+    container: projects / inline-size;
     display: flex;
     position: relative;
     flex-direction: column;
@@ -128,5 +129,9 @@ const article = (await getCollection('articles'))
     padding: 0;
     list-style: none;
     gap: 1.5rem;
+
+    @container projects (max-inline-size: 30rem) {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
