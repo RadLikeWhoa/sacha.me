@@ -49,6 +49,10 @@ import Link from './Link/Link.astro';
       inset-block: 0;
       inset-inline-start: 0;
       box-shadow: var(--shadow-elevation-low);
+
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     &:not(:has(.active))::before {
@@ -66,8 +70,9 @@ import Link from './Link/Link.astro';
       }
 
       &::before {
-        background-color: hsl(
-          from var(--header-foreground-color) h s calc(l - 10)
+        background-color: light-dark(
+          hsl(from var(--header-foreground-color) h s calc(l - 10)),
+          hsl(from var(--header-foreground-color) h s calc(l + 10))
         );
       }
     }

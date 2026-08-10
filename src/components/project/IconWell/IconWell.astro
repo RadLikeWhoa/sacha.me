@@ -41,6 +41,10 @@ const {
     a:is(:hover, :focus-visible) & {
       background-color: hsl(from var(--accent) h s calc(l - 10));
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 
   .low {

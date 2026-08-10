@@ -73,17 +73,20 @@ if (headerForegroundColor) {
       :root {
         --border-radius: 10px;
 
-        --accent-color: #009f4d;
-        --background-color: #faf0e1;
+        --accent-color: light-dark(#009f4d, #00d165);
+        --background-color: light-dark(#faf0e1, #161514);
         --header-background-color: var(--background-color);
         --header-foreground-color: var(--accent-color);
-
-        --text-color: #333;
-        --text-color-muted: #aaa;
+        --link-color: var(--accent-color);
+        --text-color: light-dark(#333333, #eaeaea);
+        --text-color-muted: light-dark(#aaa, #bababa);
+        --button-background-color: var(--accent-color);
+        --button-text-color: light-dark(#fff, #eaeaea);
         --widget-color: hsl(from var(--background-color) h s calc(l + 5));
 
-        --shadow-color: hsl(
-          from var(--background-color) h calc(s - 45) calc(l - 35)
+        --shadow-color: light-dark(
+          hsl(from var(--background-color) h calc(s - 45) calc(l - 35)),
+          hsl(from var(--background-color) h calc(s + 10) calc(l + 15))
         );
 
         --shadow-elevation-low:
@@ -96,6 +99,8 @@ if (headerForegroundColor) {
           0px 2px 2.3px -0.8px rgb(from var(--shadow-color) r g b / 34%),
           0px 5px 5.6px -1.7px rgb(from var(--shadow-color) r g b / 34%),
           0px 12.3px 13.8px -2.5px rgb(from var(--shadow-color) r g b / 34%);
+
+        color-scheme: light dark;
       }
 
       * {
@@ -141,8 +146,15 @@ if (headerForegroundColor) {
         text-decoration-color: transparent;
 
         &:is(:hover, :focus-visible) {
-          color: hsl(from var(--accent-color) h s calc(l - 10));
+          color: light-dark(
+            hsl(from var(--accent-color) h s calc(l - 10)),
+            hsl(from var(--accent-color) h s calc(l + 10))
+          );
           text-decoration-color: currentColor;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
         }
       }
 

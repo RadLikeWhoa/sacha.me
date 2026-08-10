@@ -41,5 +41,9 @@ const active = exact ? pathname === href : pathname.includes(href);
     &:is(.active, :hover, :focus-visible) {
       color: var(--header-background-color);
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   }
 </style>
