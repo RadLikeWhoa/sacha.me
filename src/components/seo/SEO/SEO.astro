@@ -8,6 +8,7 @@ interface Props {
   type?: 'website' | 'article' | 'project';
   pubDate?: Date;
   updatedDate?: Date;
+  noindex?: boolean;
 }
 
 const {
@@ -16,6 +17,7 @@ const {
   type = 'website',
   pubDate,
   updatedDate,
+  noindex,
 } = Astro.props;
 
 const resolvedTitle = title
@@ -31,7 +33,7 @@ const canonicalURL = new URL(
 
 const jsonLdString = generateJsonLd({
   type,
-  title: resolvedTitle,
+  title: title || SITE_METADATA.title,
   description: resolvedDescription,
   url: canonicalURL.toString(),
   pubDate,
@@ -40,10 +42,14 @@ const jsonLdString = generateJsonLd({
 ---
 
 <title>{resolvedTitle}</title>
-<meta
-  name="title"
-  content={resolvedTitle}
-/>
+{
+  noindex && (
+    <meta
+      name="robots"
+      content="noindex, nofollow"
+    />
+  )
+}
 <meta
   name="description"
   content={resolvedDescription}
@@ -69,19 +75,19 @@ const jsonLdString = generateJsonLd({
   content={resolvedDescription}
 />
 <meta
-  property="twitter:card"
+  name="twitter:card"
   content="summary"
 />
 <meta
-  property="twitter:url"
+  name="twitter:url"
   content={canonicalURL}
 />
 <meta
-  property="twitter:title"
+  name="twitter:title"
   content={resolvedTitle}
 />
 <meta
-  property="twitter:description"
+  name="twitter:description"
   content={resolvedDescription}
 />
 <script

@@ -8,4 +8,5 @@ export default defineConfig({
     defaultStrategy: 'viewport',
   },
   integrations: [sitemap()],
+  trailingSlash: 'always',
 });
