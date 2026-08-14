@@ -10,8 +10,9 @@ import Navigation from './Navigation/Navigation.astro';
       <a
         href="/"
         data-astro-prefetch
+        aria-label="Go to homepage"
       >
-        <Logo />
+        <Logo aria-hidden="true" />
       </a>
       <Navigation />
     </div>
@@ -38,7 +39,9 @@ import Navigation from './Navigation/Navigation.astro';
     &:is(:hover, :focus-visible) {
       --logo-color: hsl(from var(--header-foreground-color) h s calc(l - 10));
 
-      animation: boink 0.25s ease-in-out;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: boink 0.25s ease-in-out;
+      }
     }
   }
 

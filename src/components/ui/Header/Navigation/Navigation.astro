@@ -41,17 +41,16 @@ import Link from './Link/Link.astro';
       z-index: 0;
       block-size: 100%;
       inline-size: 25%;
-      transition:
-        translate 0.25s ease-in-out,
-        background-color 0.25s ease-in-out;
       border-radius: var(--border-radius);
       background-color: var(--header-foreground-color);
       inset-block: 0;
       inset-inline-start: 0;
       box-shadow: var(--shadow-elevation-low);
 
-      @media (prefers-reduced-motion: reduce) {
-        transition: none;
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          translate 0.25s ease-in-out,
+          background-color 0.25s ease-in-out;
       }
     }
 

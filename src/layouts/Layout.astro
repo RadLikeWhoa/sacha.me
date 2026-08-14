@@ -139,9 +139,6 @@ if (headerForegroundColor) {
       }
 
       a {
-        transition:
-          color 0.25s ease-in-out,
-          text-decoration-color 0.25s ease-in-out;
         color: var(--accent-color);
         text-decoration-color: transparent;
 
@@ -153,8 +150,10 @@ if (headerForegroundColor) {
           text-decoration-color: currentColor;
         }
 
-        @media (prefers-reduced-motion: reduce) {
-          transition: none;
+        @media (prefers-reduced-motion: no-preference) {
+          transition:
+            color 0.25s ease-in-out,
+            text-decoration-color 0.25s ease-in-out;
         }
       }
 

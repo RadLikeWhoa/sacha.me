@@ -36,7 +36,6 @@ const {
 
   .icon-well {
     display: grid;
-    transition: background-color 0.25s ease-in-out;
     border-radius: var(--border-radius);
     background-color: var(--accent);
     place-content: center;
@@ -45,8 +44,8 @@ const {
       background-color: hsl(from var(--accent) h s calc(l - 10));
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      transition: none;
+    @media (prefers-reduced-motion: no-preference) {
+      transition: background-color 0.25s ease-in-out;
     }
   }
 
