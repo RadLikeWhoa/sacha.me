@@ -12,7 +12,7 @@ Jekyll was created with this in mind so it offers easy integration with tools li
 
 Because of this, developers have come up with alternatives. One of those is called [Rouge](https://github.com/jneen/rouge 'Rouge on GitHub') and in this post I will show you how you can (and why you should) integrate Rouge into your Jekyll setup.
 
-### Benefits of using Rouge
+## Benefits of using Rouge
 
 First of all, it's a lot cleaner to use a Ruby-based syntax highlighter in a Ruby-based setup. You eliminate the need to spawn Python processes right away, which reduces your build time considerably.
 
@@ -20,7 +20,7 @@ At this point you might think of [CodeRay](http://coderay.rubychan.de "CodeRay's
 
 On my admittedly small site, a standard `jekyll build` command took about 28 seconds to complete. Using CodeRay, the build time reduced to 18 seconds, while using Rouge cut the build time by another 2 seconds down to 16 seconds. A total saving of about **40%** is amazing, especially when you want to preview your posts regularly while you're writing them.
 
-### Installing Rouge
+## Installing Rouge
 
 The easiest way to use Rouge is using the [kramdown](http://kramdown.gettalong.org "kramdown's project page") markdown parser. They recently added native support for Rouge and Jekyll has been supporting kramdown for a while now.
 
@@ -34,7 +34,7 @@ If you already have a version of kramdown on your machine, make sure it's at lea
 
 By the way, if, like me, you're always getting errors doing anything with Rouge, remember _it's called Rouge, not Rogue_.
 
-### Using Rouge with Jekyll
+## Using Rouge with Jekyll
 
 As with all options concerning your builds, the place to add them is in your `_config.yml`. You might have an entry like `highlighter: pygments` in there, make sure to remove that. In my site's configuration I'm using the following options:
 
@@ -60,7 +60,7 @@ Rouge adds classes to your code blocks, allowing you to style parts of your code
 
 The only drawback for now is that kramdown only lets you define the standard language to use for your code blocks, all other options are not yet supported. This also means that line numbers are not yet supported. If you absolutely want that feature, you'll have to wait for a little while.
 
-### Using Rouge in Jekyll 3 on GitHub Pages
+## Using Rouge in Jekyll 3 on GitHub Pages
 
 Ever since GitHub pages have upgraded Jekyll to version 3 you can use Rouge as your default syntax highlighter. Enabling it is as easy as including the following two lines in your `_config.yml`. In fact, GitHub will even send you a warning if you're trying to use anything other than Rouge.
 

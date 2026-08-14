@@ -3,9 +3,10 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   article: CollectionEntry<'articles'>;
+  level?: 'h2' | 'h3';
 }
 
-const { article } = Astro.props;
+const { article, level: Heading = 'h2' } = Astro.props;
 
 const {
   id,
@@ -14,14 +15,14 @@ const {
 ---
 
 <article>
-  <h1>
+  <Heading>
     <a
       href={`/articles/${id}`}
       data-astro-prefetch
     >
       {title}
     </a>
-  </h1>
+  </Heading>
   <p>{teaser}</p>
 </article>
 

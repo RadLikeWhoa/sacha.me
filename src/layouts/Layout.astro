@@ -191,6 +191,15 @@ if (headerForegroundColor) {
       .elevation-high {
         box-shadow: var(--shadow-elevation-high);
       }
+
+      .visually-hidden {
+        position: absolute;
+        block-size: 1px;
+        inline-size: 1px;
+        overflow: hidden;
+        white-space: nowrap;
+        clip-path: inset(50%);
+      }
     </style>
   </head>
   <body style={cssProperties}>

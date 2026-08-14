@@ -17,6 +17,7 @@ const article = (await getCollection('articles'))
 
 <Layout>
   <Container>
+    <h1 class="visually-hidden">Sacha Schmid — Front-end developer</h1>
     <section class="section-intro">
       <p>
         Hi there, my name is <b>Sacha</b> and I am a front-end developer and designer.
@@ -54,8 +55,11 @@ const article = (await getCollection('articles'))
     {
       article && (
         <section class="section-articles">
-          <h1 class="section-title">Latest article</h1>
-          <ArticleTeaser article={article} />
+          <h2 class="section-title">Latest article</h2>
+          <ArticleTeaser
+            article={article}
+            level="h3"
+          />
           <Button href="/articles">Read more articles</Button>
         </section>
       )
@@ -82,7 +86,7 @@ const article = (await getCollection('articles'))
     align-items: flex-start;
     gap: 1.5rem;
 
-    > h1 {
+    > h2 {
       inline-size: 100%;
       border-block-end: 5px solid;
       padding-block-end: 0.5rem;

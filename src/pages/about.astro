@@ -13,6 +13,7 @@ const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
 >
   <Container>
     <article>
+      <h1 class="visually-hidden">About me</h1>
       <p>
         My name is Sacha Schmid. I'm a front-end developer from Switzerland,
         interested in both interface design and web development.
@@ -133,6 +134,10 @@ const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
 
     :global(:is(h1, h2, h3)) {
       margin-block-start: 1.5rem;
+
+      &:first-child {
+        margin-block-start: 0;
+      }
     }
   }
 </style>

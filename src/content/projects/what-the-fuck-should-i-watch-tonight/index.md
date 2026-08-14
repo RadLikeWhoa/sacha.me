@@ -39,7 +39,7 @@ We went on to collect a list of basic emotions that a movie might make you feel.
 
 All movies are added by the users. They can search for a movie by its name and then save a rating for it. If the movie is already present in the database only the rating is saved, otherwise all the necessary details for the movie are saved as well. All data is pulled from The Movie Database.
 
-# Things I've learned
+## Things I've learned
 
 I decided to use this as an opportunity to finally learn more about React by using it in a real world project. Setting up the project was a bit of a chore, but it did not take too long for me to fully appreciate React and all its core principles.
 
@@ -47,7 +47,7 @@ I decided to use this as an opportunity to finally learn more about React by usi
 
 Things like JSX, components, states and props, and immutability quickly went from confusing new terminologies to helpful tools to increase efficiency during programming, but also of the application itself. I plan on working with React a lot more in the future.
 
-# Technologies I've used
+## Technologies I've used
 
 All React code — all JavaScript code, that is — was coded in ECMAScript 6. The ability to rely on classes and things like spread operators to help with immutability were invaluable when creating an application such as this one. Using tools like Gulp or Browserify it was quite easy to get started with all the new language features.
 

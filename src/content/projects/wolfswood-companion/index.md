@@ -28,7 +28,7 @@ While playing Destiny's Iron Banner event I came up with the idea for this app, 
 
 From the beginning I wanted to create something that fit right into the iOS ecosystem, while still resembling the interface of Destiny. This meant thoroughly studying iOS interface guidelines and playing quite a bit of Destiny.
 
-# Things I've learned
+## Things I've learned
 
 This was an entirely new experience for me, developing a native application for the first time, so of course there was a lot I had to learn.
 
@@ -38,7 +38,7 @@ Getting into iOS development seems like an overwhelming task at the beginning, b
 
 I wanted to make the application available for free and to include additional shaders — custom themes I created resembling Destiny-related subjects — as In App Purchases. This lead to some more difficulties, mainly setting up the iTunes Connect account correctly. In the end, however, I managed to include everything I wanted in the app and officially release it.
 
-# Technologies I've used
+## Technologies I've used
 
 The application is written using only Swift code, which I found a lot easier to understand than the traditional Objective-C code that was used up until recently. Swift was a great language to learn and write and I look forward to creating more applications in Swift.
 

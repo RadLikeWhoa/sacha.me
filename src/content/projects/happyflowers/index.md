@@ -47,7 +47,7 @@ One goal of this project was to showcase the real-world applications of Haskell 
 
 Creating the project along with thorough documentation in a team of two over the course of a single semester was not an easy feat, but certainly very rewarding. The learnings and the feeling of success were far greater than in previous projects at this university.
 
-# Things I've learned
+## Things I've learned
 
 The clear focus on functional programming allowed me to gain more knowledge on a topic I was only somewhat familiar with. This was helped by the fact that we could rely on shared concepts between the React and Haskell codebase as both sides are built on similar ideas.
 
@@ -57,7 +57,7 @@ Also, this was the first project where I worked with a Raspberry Pi. I knew what
 
 What was especially interesting during this project was the reliance on real-time communication. We needed to make sure that the water pump could only ever be activated by one person. In addition to that, there had to be a limit on activations so that the flower could not be flooded unnecessarily. A combination of Haskell concurrency in the backend and state management on the dashboard allowed us to handle most cases where concurrent access could lead to problems. Testing this functionality was some of the most time-consuming work throughout this project.
 
-# Technologies I've used
+## Technologies I've used
 
 My previous experience with Haskell was limited to the exercises during the lecture I mentioned above; other than that, Haskell was a completely new environment for me. This was especially obvious while setting up the project. Getting to know Cabal as the dependency manager, finding new libraries on Hackage and then sorting out issues with Cabal took quite some time. Stack would have been the much better alternative for dependency management, however, getting a somewhat current version of Haskell to run on the Raspberry Pi was hard enough already, so setting one up that was also compatible with Stack was something we did not want to tackle.
 

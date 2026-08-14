@@ -5,9 +5,10 @@ import IconWell from '../IconWell/IconWell.astro';
 interface Props {
   project: CollectionEntry<'projects'>;
   alternate: boolean;
+  level?: 'h2' | 'h3';
 }
 
-const { project, alternate } = Astro.props;
+const { project, alternate, level: Heading = 'h2' } = Astro.props;
 
 const {
   id,
@@ -21,14 +22,14 @@ const {
     elevation="low"
   />
   <div class="content">
-    <h1>
+    <Heading>
       <a
         href={`/projects/${id}`}
         data-astro-prefetch
       >
         {title}
       </a>
-    </h1>
+    </Heading>
     <p>
       <time>{date.toLocaleDateString('en-UK', { year: 'numeric' })}</time> – {
         teaser

@@ -32,7 +32,7 @@ It didn't take me very long to cover the basic functionality. However, when I go
 
 Apparently there was a strong desire in the web development community for a project like this. Countable quickly gained popularity and is now at over 1000 stars on GitHub. It's used in projects like the [Ghost blogging platform](https://ghost.org).
 
-# Things I've learned
+## Things I've learned
 
 When I first started out working on the project I assumed it would be rather simple, but it didn't take long until I ran into the first problems. Luckily, the open source community was [very interested](https://github.com/RadLikeWhoa/Countable/pulls?q=is%3Apr+is%3Aclosed) in Countable so there were lots of people willing to help improve the library.
 
@@ -42,7 +42,7 @@ It was also very interesting to take testing more seriously than I have before. 
 
 To make it easier for people to install and use Countable I chose to make them available through [bower](http://bower.io) and [npm](https://npmjs.com). This means I had to respect the semantic versioning conventions, which seem rather simple even though it's actually quite hard to know when a new version is needed.
 
-# Technologies I've used
+## Technologies I've used
 
 The library itself is just plain JavaScript. Additionally, there are no dependencies, which keeps the size low and makes it easier to use Countable in an environment without dependency management. Still, Countable is fully compatible with module loaders like AMD or CommonJS / Node.
 

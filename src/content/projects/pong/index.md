@@ -29,7 +29,7 @@ Aesthetically, the game uses the familiar 8-bit style with purely black and whit
 
 Unlike the classic arcade game, PONG?! can be a rather slow game. Players are encouraged to seek communication with their rivals in order to have a better chance at discovering the bluff. This creates interesting situations which can vary greatly if you are playing against someone you know very well or against someone you've only just met.
 
-# Things I've learned
+## Things I've learned
 
 This project was mainly an exercise in idea finding. I've mentioned it earlier, but since this was not our original idea we had to get creative and figure out an idea that could be realised within the given time frame. I ended up combining and adapting different ideas that worked best together.
 
@@ -39,7 +39,7 @@ Developing the mechanics and deciding on the reward distribution was one of the 
 
 As part of our original idea I'd had the chance to learn about developing a game in Unity, which was definitely an interesting experience that brought with it some new challenges. All the concepts and terminologies were rather confusing at first, but they certainly helped get a better understanding of the game and its inner workings.
 
-# Technologies I've used
+## Technologies I've used
 
 Over the course of the lecture, we worked with Unity on a number of demo projects. While this was a generally pleasant experience, the very strict time budget didn't allow us to lose any time on learning new things and working around related issues. Due to this, we decided to realise the game in React, a technology we were already familiar with.
 

@@ -22,7 +22,7 @@ What exactly have we done here? We've added a script tag with its source set to 
 
 To sum it up, a JSONP script calls a function with the data you've requested as the only argument.
 
-### But I want an easy-to-use function!
+## But I want an easy-to-use function!
 
 It can be very much cumbersome to always go through the following steps:
 
@@ -112,7 +112,7 @@ You might be suprised that this is not the function you actually define when cal
 
 As a last step we have to increase the ID. Now we can be sure that our request will work out just fine and everything will be cleaned up. But is it too early to party?
 
-### Even JSONP has downsides
+## Even JSONP has downsides
 
 JSONP has downsides. Some pretty major downsides, even. First off, there is no proper error handling. As there are no status codes and no response codes sent, you'll have to hope for the best to happen. And there is more than one place where things can go wrong.
 
@@ -120,7 +120,7 @@ The url you requested can be outdated or simply contain a typo. The `jsonp` func
 
 As with every other technology, security concerns are raised, but with JSONP, the concerns have a valid point. A script requested through JSONP can hold any JavaScript. There is no globally accepted specification that forces a specific format. That means your requested file can happily execute whatever it wants to and you probably won't even notice it. There are [proposals for a safer solution](http://json-p.org 'Proposal for safer JSONP'), but they have yet to be enforced.
 
-### Conclusion
+## Conclusion
 
 There's not too much of a conclusion to draw here. Use JSONP if you want to use an API that doesn't support CORS. Don't use JSONP if you're too concerned about security issues or want proper error handling.
 

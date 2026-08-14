@@ -8,10 +8,11 @@ import ArticleTeaser from '../../article/ArticleTeaser/ArticleTeaser.astro';
 import ProjectTeaser from '../../project/ProjectTeaser/ProjectTeaser.astro';
 
 interface Props {
+  title: string;
   collection: keyof DataEntryMap;
 }
 
-const { collection } = Astro.props;
+const { title, collection } = Astro.props;
 
 const items = (await getCollection(collection)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
@@ -25,6 +26,7 @@ const isProject = (
 ---
 
 <section>
+  <h1>{title}</h1>
   <ol>
     {
       items.map((item, index) => (
@@ -33,9 +35,13 @@ const isProject = (
             <ProjectTeaser
               project={item}
               alternate={index % 2 === 0}
+              level="h2"
             />
           ) : (
-            <ArticleTeaser article={item} />
+            <ArticleTeaser
+              article={item}
+              level="h2"
+            />
           )}
         </li>
       ))
@@ -45,6 +51,9 @@ const isProject = (
 
 <style>
   section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     container: content-list / inline-size;
     padding-block: 4.5rem;
   }

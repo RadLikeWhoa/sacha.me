@@ -29,13 +29,13 @@ In order to make the experience even more pleasant, the app even provides a toda
 
 This app was created as a project for a workshop at the UAS. The goal was to create an application, either a native application on Android or iOS, or a hybrid application using Ionic. I decided to go with iOS in an attempt to further gain experience with the platform and related tools.
 
-# Things I've learned
+## Things I've learned
 
 The app had a fairly narrow scope so there were not a whole lot of new things to learn. The most interesting aspects were of a technological nature, which will be detailed further down.
 
 An interesting part of the project was the final presentation where we had 5 minutes to present our idea, the result, and interesting parts of the process. The short time frame, along with all the information we had to present, created an interesting challenge. In the end, the idea and the presentation worked out and so the app won the third prize.
 
-# Technologies I've used
+## Technologies I've used
 
 As part of the lecture, the app was required to provide data persistence of some sort. I was not overly familiar with the different options that were commonplace in the iOS ecosystem so I followed one of the recommendations of our lecturers and started implementing Realm.
 
