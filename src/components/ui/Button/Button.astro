@@ -5,19 +5,21 @@ interface Props {
 }
 
 const { href, elevation } = Astro.props;
+
+const elevationClass = `elevation-${elevation}`;
 ---
 
 {
   href ? (
     <a
       href={href}
-      class:list={[elevation]}
+      class={elevationClass}
       data-astro-prefetch
     >
       <slot />
     </a>
   ) : (
-    <button class:list={[elevation]}>
+    <button class={elevationClass}>
       <slot />
     </button>
   )
@@ -52,13 +54,5 @@ const { href, elevation } = Astro.props;
     @media (prefers-reduced-motion: reduce) {
       transition: none;
     }
-  }
-
-  .low {
-    box-shadow: var(--shadow-elevation-low);
-  }
-
-  .high {
-    box-shadow: var(--shadow-elevation-high);
   }
 </style>

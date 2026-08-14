@@ -15,8 +15,11 @@ const {
 } = project;
 ---
 
-<a href={`/projects/${id}`}>
-  <div class:list={['icon-well', elevation]}>
+<a
+  href={`/projects/${id}`}
+  data-astro-prefetch
+>
+  <div class:list={['icon-well', `elevation-${elevation}`]}>
     <Image
       src={icon}
       alt={`${title} icon`}
@@ -45,14 +48,6 @@ const {
     @media (prefers-reduced-motion: reduce) {
       transition: none;
     }
-  }
-
-  .low {
-    box-shadow: var(--shadow-elevation-low);
-  }
-
-  .high {
-    box-shadow: var(--shadow-elevation-high);
   }
 
   img {

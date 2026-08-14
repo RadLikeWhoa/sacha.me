@@ -3,7 +3,6 @@ import SEO from '@/components/seo/SEO/SEO.astro';
 import Footer from '@/components/ui/Footer/Footer.astro';
 import Header from '@/components/ui/Header/Header.astro';
 import type { ComponentProps } from 'astro/types';
-import { Font } from 'astro:assets';
 import { SITE_METADATA } from '../consts';
 
 interface Props {
@@ -46,6 +45,12 @@ if (headerForegroundColor) {
     <meta
       name="theme-color"
       content="#009f4d"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#00d165"
+      media="(prefers-color-scheme: dark)"
     />
     <link
       rel="icon"
@@ -67,7 +72,6 @@ if (headerForegroundColor) {
       title={SITE_METADATA.title}
       href="/rss.xml"
     />
-    <Font cssVariable="--font-material-symbols" />
     <SEO {...seo} />
     <style is:global>
       :root {
@@ -178,6 +182,14 @@ if (headerForegroundColor) {
 
       dd {
         margin: 0;
+      }
+
+      .elevation-low {
+        box-shadow: var(--shadow-elevation-low);
+      }
+
+      .elevation-high {
+        box-shadow: var(--shadow-elevation-high);
       }
     </style>
   </head>

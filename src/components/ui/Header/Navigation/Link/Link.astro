@@ -13,6 +13,7 @@ const active = exact ? pathname === href : pathname.includes(href);
 <a
   href={href}
   class:list={[{ active }]}
+  data-astro-prefetch
 >
   <slot />
 </a>
