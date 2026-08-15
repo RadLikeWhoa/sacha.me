@@ -12,7 +12,7 @@ const { project, alternate, level: Heading = 'h2' } = Astro.props;
 
 const {
   id,
-  data: { title, teaser, date, accent },
+  data: { title, teaser, accent },
 } = project;
 ---
 
@@ -31,9 +31,7 @@ const {
       </a>
     </Heading>
     <p>
-      <time>{date.toLocaleDateString('en-UK', { year: 'numeric' })}</time> – {
-        teaser
-      }
+      {teaser}
     </p>
   </div>
 </article>
@@ -76,9 +74,5 @@ const {
 
   a {
     color: var(--accent-color);
-  }
-
-  time {
-    color: var(--text-color-muted);
   }
 </style>

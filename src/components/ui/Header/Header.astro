@@ -40,7 +40,10 @@ import Navigation from './Navigation/Navigation.astro';
     inline-size: fit-content;
 
     &:is(:hover, :focus-visible) {
-      --logo-color: hsl(from var(--header-foreground-color) h s calc(l - 10));
+      --logo-color: light-dark(
+        hsl(from var(--header-foreground-color) h s calc(l - 10)),
+        hsl(from var(--header-foreground-color) h s calc(l + 10))
+      );
 
       @media (prefers-reduced-motion: no-preference) {
         animation: boink 0.25s ease-in-out;

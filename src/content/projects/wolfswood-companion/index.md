@@ -14,7 +14,7 @@ technologies:
   - Swift
   - Cocoa
   - StoreKit
-accent: '#AA8F2B'
+accent: '#226DE6'
 teaser: 'Wolfswood Companion is a planning utility for the console game Destiny. It helps players with planning the monthly Iron Banner event and achieving the maximum level in order to obtain all the rewards.'
 hero: hero.png
 icon: icon.svg
