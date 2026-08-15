@@ -26,15 +26,18 @@ import Navigation from './Navigation/Navigation.astro';
   }
 
   .content {
-    display: flex;
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
-    justify-content: space-between;
+    gap: 1.5rem 0;
   }
 
   a {
     --logo-color: var(--header-foreground-color);
 
     display: inline-block;
+    inline-size: fit-content;
 
     &:is(:hover, :focus-visible) {
       --logo-color: hsl(from var(--header-foreground-color) h s calc(l - 10));

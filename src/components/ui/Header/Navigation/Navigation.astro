@@ -2,7 +2,20 @@
 import Link from './Link/Link.astro';
 ---
 
-<nav>
+<button
+  type="button"
+  class="toggle"
+  id="nav-toggle"
+  aria-controls="site-nav"
+  aria-expanded="false"
+  aria-label="Navigation"
+>
+  <span
+    class="hamburger"
+    aria-hidden="true"
+  ></span>
+</button>
+<nav id="site-nav">
   <ol>
     <li>
       <Link
@@ -24,12 +37,119 @@ import Link from './Link/Link.astro';
   </ol>
 </nav>
 
+<script>
+  const toggle = document.getElementById('nav-toggle');
+
+  toggle?.addEventListener('click', () => {
+    toggle.setAttribute(
+      'aria-expanded',
+      String(!(toggle.getAttribute('aria-expanded') === 'true')),
+    );
+  });
+</script>
+
 <style>
+  .hamburger {
+    &,
+    &::before,
+    &::after {
+      display: block;
+      position: absolute;
+      block-size: 2px;
+      inline-size: 1.5rem;
+      border-radius: 1px;
+      background-color: currentColor;
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition:
+          translate 0.25s ease-in-out,
+          rotate 0.25s ease-in-out,
+          background-color 0.25s ease-in-out;
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+    }
+
+    &::before {
+      translate: 0 -0.5rem;
+    }
+
+    &::after {
+      translate: 0 0.5rem;
+    }
+  }
+
+  .toggle {
+    display: inline-grid;
+    position: relative;
+    block-size: 3rem;
+    inline-size: 3rem;
+    margin-inline-start: auto;
+    border: none;
+    border-radius: var(--border-radius);
+    background: none;
+    color: var(--header-foreground-color);
+    cursor: pointer;
+    place-items: center;
+    appearance: none;
+
+    &[aria-expanded='true'] {
+      .hamburger {
+        background-color: transparent;
+
+        &::before {
+          translate: 0 0;
+          rotate: 45deg;
+        }
+
+        &::after {
+          translate: 0 0;
+          rotate: -45deg;
+        }
+      }
+    }
+
+    @media (min-width: 30rem) {
+      display: none;
+    }
+  }
+
+  nav {
+    @media (max-width: 30rem) {
+      grid-column: 1 / -1;
+
+      .toggle[aria-expanded='false'] + & {
+        display: none;
+      }
+
+      @starting-style {
+        opacity: 0;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        transition: opacity 0.25s ease-in-out;
+      }
+    }
+
+    @media (min-width: 30rem) {
+      display: block;
+      position: static;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: none;
+      inset: auto;
+    }
+  }
+
   ol {
-    display: grid;
+    display: flex;
     position: relative;
     z-index: 1;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    flex-direction: column;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -39,24 +159,24 @@ import Link from './Link/Link.astro';
       display: block;
       position: absolute;
       z-index: 0;
-      block-size: 100%;
-      inline-size: 25%;
+      block-size: 3rem;
+      inline-size: 100%;
       border-radius: var(--border-radius);
       background-color: var(--header-foreground-color);
       inset-block: 0;
       inset-inline-start: 0;
       box-shadow: var(--shadow-elevation-low);
 
+      @media (min-width: 30rem) {
+        block-size: 100%;
+        inline-size: 25%;
+      }
+
       @media (prefers-reduced-motion: no-preference) {
         transition:
           translate 0.25s ease-in-out,
           background-color 0.25s ease-in-out;
       }
-    }
-
-    &:not(:has(.active))::before {
-      background-color: transparent;
-      box-shadow: none;
     }
 
     &:has(a:is(:hover, :focus-visible)) {
@@ -84,19 +204,36 @@ import Link from './Link/Link.astro';
 
     &:has(li:nth-child(2) .active)::before,
     &:has(li:nth-child(2) a:is(:hover, :focus-visible))::before {
-      translate: 100% 0;
+      translate: 0 100%;
+
+      @media (min-width: 30rem) {
+        translate: 100% 0;
+      }
     }
 
     &:has(li:nth-child(3) .active)::before,
     &:has(li:nth-child(3) a:is(:hover, :focus-visible))::before {
-      translate: 200% 0;
+      translate: 0 200%;
+
+      @media (min-width: 30rem) {
+        translate: 200% 0;
+      }
     }
 
     &:has(li:nth-child(4) .active)::before,
     &:has(li:nth-child(4) a:is(:hover, :focus-visible))::before {
-      translate: 300% 0;
+      translate: 0 300%;
+
+      @media (min-width: 30rem) {
+        translate: 300% 0;
+      }
     }
     /* stylelint-enable no-descending-specificity */
+
+    @media (min-width: 30rem) {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
   }
 
   li {
