@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "engines": {
     "node": ">=24",
-    "pnpm": ">=10"
+    "pnpm": ">=11"
   },
   "scripts": {
     "dev": "astro dev",
@@ -15,7 +15,8 @@
     "format:check": "prettier . -l",
     "lint": "eslint src/**/*.{ts,astro} && stylelint src/**/*.{css,astro}",
     "lint:fix": "eslint src/**/*.{ts,astro} --fix && stylelint src/**/*.{css,astro} --fix",
-    "typecheck": "astro check"
+    "typecheck": "astro check",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/rss": "~4.0.19",
@@ -27,6 +28,7 @@
     "@eslint/js": "~10.0.1",
     "eslint": "~10.8.0",
     "eslint-plugin-astro": "~3.1.0",
+    "husky": "^9.1.7",
     "postcss-html": "~2.0.0",
     "prettier": "~3.9.6",
     "prettier-plugin-astro": "~0.14.1",
