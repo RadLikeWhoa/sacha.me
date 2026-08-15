@@ -28,7 +28,7 @@ icon: icon.svg
 
 This project started when I was working on another side project where users would be able to enter text into an input field and the app would generate certain statistics about the entered text, this included basic information like a word count. I was browsing the internet to look for a similar idea I could use as a starting point, but all the existing solutions seemed unpolished or didn't even work properly. That's when I decided to start working on Countable.
 
-It didn't take me very long to cover the basic functionality. However, when I got to testing my code in different browsers, things started to go downhill very quickly. It turns out many of the techniques I relied on worked vastly differently in all browsers. This was an interesting challenge and I was curious to find a solution that worked everywhere.
+It didn't take long to implement the basic functionality. However, once I began testing across different browsers, I ran into a number of issues. Many of the techniques I relied on behaved quite differently across browsers. This was an interesting challenge and I was determined to find a solution that worked everywhere.
 
 Apparently there was a strong desire in the web development community for a project like this. Countable quickly gained popularity and is now at over 1000 stars on GitHub. It's used in projects like the [Ghost blogging platform](https://ghost.org).
 

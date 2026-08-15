@@ -16,7 +16,7 @@ technologies:
   - Realm
 accent: '#0071BD'
 repo: https://github.com/RadLikeWhoa/count
-teaser: 'Counting something is easy, but humans tend to be forgetful. Thus we tally things on paper instead of trying to keep the numbers in our head. In the digital age, however, paper is outdated so tallying has to move to the app universe.'
+teaser: 'Counting something is easy, but humans tend to be forgetful. Thus we tally things on paper instead of trying to keep the numbers in our head, but taking things a step further allows us to have an easy-to-use app to handle this in the digital age.'
 hero: hero.png
 icon: icon.svg
 ---

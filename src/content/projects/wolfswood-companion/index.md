@@ -22,7 +22,7 @@ icon: icon.svg
 
 I've been interested in native application development for a long time, especially on iOS since most of my devices are from that ecosystem.
 
-While playing Destiny's Iron Banner event I came up with the idea for this app, which fell into a uncovered category in the App Store. Admittedly, it is not a completely new idea as similar applications already exist on the web or on other platforms, but I set out to create something new with a focus on design.
+While playing Destiny's Iron Banner event I came up with the idea for this app, which fell into an uncovered category in the App Store. Admittedly, it is not a completely new idea as similar applications already exist on the web or on other platforms, but I set out to create something new with a focus on design.
 
 ![A selection of shaders, custom themes resembling Destiny-related subjects, which are available as IAP inside the application.](./shaders.png)
 
@@ -36,7 +36,7 @@ Getting into iOS development seems like an overwhelming task at the beginning, b
 
 ![The application works regardless of platform, number of characters. Players can customise and make the application their own using various shaders.](./interface.png)
 
-I wanted to make the application available for free and to include additional shaders — custom themes I created resembling Destiny-related subjects — as In App Purchases. This lead to some more difficulties, mainly setting up the iTunes Connect account correctly. In the end, however, I managed to include everything I wanted in the app and officially release it.
+I wanted to make the application available for free and to include additional shaders — custom themes I created resembling Destiny-related subjects — as In App Purchases. This led to some further difficulties, mainly setting up the iTunes Connect account correctly. In the end, however, I managed to include everything I wanted in the app and officially release it.
 
 ## Technologies I've used
 

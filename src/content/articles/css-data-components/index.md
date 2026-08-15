@@ -1,20 +1,20 @@
 ---
 title: 'Using Data Attributes to Write CSS Components'
 date: 2015-01-11
-teaser: "With BEM, SMACSS, OOCSS and other methodologies for CSS architecture there's been a lot of debating around which method is better than the others. AMCSS is a new contender for the throne and in this post I will outline how I'm using it to write CSS components."
+teaser: "With BEM, SMACSS, OOCSS and other methodologies for CSS architecture there's been a lot of debate around which method is better than the others. AMCSS is an alternative approach, and in this post I will outline how I use it to write CSS components."
 ---
 
-In recent years, CSS architecture has become more and more important when authoring websites. No longer would web developers just throw some selectors around until everything looks the way it should. Instead we think about the architecture of our CSS files and how they help us become more efficient in creating our websites. After the recent redesign of my website, I thought I'd share some thoughts about how I write my CSS components.
+In recent years, CSS architecture has become increasingly important when authoring websites. Web developers no longer simply add selectors until the result looks right. Instead, we consider the architecture of our CSS files and how it helps us work more efficiently. After the recent redesign of my website, I would like to share some thoughts on how I write my CSS components.
 
 ## Basic principles
 
 The focus of this whole debate lies on creating reusable modules that are decoupled from their content. This way stylesheets become much DRYer and writing HTML documents becomes a lot easier as you can rely on your modules to do much of the heavy lifting.
 
-This basic principle remains the same throughout all methodologies. However, the execution of those ideas differs. Sometimes components are grouped and prefixed (as in [smacss](https://smacss.com 'Scalable and Modular Architecture for CSS')), sometimes the focus lies on making the structure clearly visible (as in [BEM](https://bem.info 'Base Object Modifier')) and sometimes the architecture just defines the mindset, without giving too much guidelines on writing the CSS (like [OOCSS](http://oocss.org 'Object Oriented CSS')).
+This basic principle remains the same throughout all methodologies. However, the execution of those ideas differs. Sometimes components are grouped and prefixed (as in [smacss](https://smacss.com 'Scalable and Modular Architecture for CSS')), sometimes the focus lies on making the structure clearly visible (as in [BEM](https://bem.info 'Base Object Modifier')) and sometimes the architecture defines a mindset, without providing much guidance on writing the CSS (like [OOCSS](http://oocss.org 'Object Oriented CSS')).
 
 ## The problem with those approaches
 
-While all these architecture styles have good ideas and do a nice job at guiding CSS authors into the right direction, they all have their downsides. Consider, for example, a button with some different styles, written using the BEM ("Base, Element, Modifier") style.
+While all these architecture styles have good ideas and do a good job of guiding CSS authors in the right direction, they all have their downsides. Consider, for example, a button with some different styles, written using the BEM style.
 
 ```html
 <a class="button button--primary button--wide">Button</a>
@@ -115,6 +115,4 @@ I've created a [Sass mixin](https://github.com/RadLikeWhoa/radlikewhoa.github.io
 
 ## Conclusion
 
-If, like me, you could never really get comfortable with BEM or similar concepts, AMCSS might just be perfect for you. It solves many of the problems other concepts face and it makes writing your HTML much easier and, honestly, even a bit more fun.
-
-*[DRYer]: Don't repeat yourself
+If, like me, you have never felt entirely comfortable with BEM or similar concepts, AMCSS may be a good alternative. It addresses many of the problems other approaches face and makes writing HTML considerably easier.

@@ -22,7 +22,7 @@ hero: hero.png
 icon: icon.svg
 ---
 
-This actually started out as a simple experiment on [CodePen](htt://codepen.io). When I realised that people were interested in it, I tried to flesh out the code a bit and make it more flexible. Over the next weeks I created a proper demo page and documentation.
+This started out as a simple experiment on [CodePen](https://codepen.io). When I realised that people were interested in it, I tried to flesh out the code a bit and make it more flexible. Over the next weeks I created a proper demo page and documentation.
 
 ## Things I've learned
 

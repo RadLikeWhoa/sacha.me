@@ -18,7 +18,7 @@ First of all, it's a lot cleaner to use a Ruby-based syntax highlighter in a Rub
 
 At this point you might think of [CodeRay](http://coderay.rubychan.de "CodeRay's project page"), another Ruby-based syntax highlighter. You could also use that, but Rouge comes with support for all Pygments themes, making it easier to discover new styles for your code blocks. Also, Rouge is just a little bit faster.
 
-On my admittedly small site, a standard `jekyll build` command took about 28 seconds to complete. Using CodeRay, the build time reduced to 18 seconds, while using Rouge cut the build time by another 2 seconds down to 16 seconds. A total saving of about **40%** is amazing, especially when you want to preview your posts regularly while you're writing them.
+On my admittedly small site, a standard `jekyll build` command took about 28 seconds to complete. Using CodeRay, the build time was reduced to 18 seconds, while using Rouge cut it by another 2 seconds down to 16 seconds. A total saving of about **40%** is significant, especially when you want to preview your posts regularly while writing them.
 
 ## Installing Rouge
 
@@ -31,8 +31,6 @@ gem install kramdown rouge
 ```
 
 If you already have a version of kramdown on your machine, make sure it's at least on version **1.5.0**. If you've followed these steps so far you're now ready to use kramdown and Rouge within your Jekyll setup.
-
-By the way, if, like me, you're always getting errors doing anything with Rouge, remember _it's called Rouge, not Rogue_.
 
 ## Using Rouge with Jekyll
 
@@ -62,7 +60,7 @@ The only drawback for now is that kramdown only lets you define the standard lan
 
 ## Using Rouge in Jekyll 3 on GitHub Pages
 
-Ever since GitHub pages have upgraded Jekyll to version 3 you can use Rouge as your default syntax highlighter. Enabling it is as easy as including the following two lines in your `_config.yml`. In fact, GitHub will even send you a warning if you're trying to use anything other than Rouge.
+Ever since GitHub Pages upgraded Jekyll to version 3, you can use Rouge as your default syntax highlighter. Enabling it is as easy as including the following two lines in your `_config.yml`. In fact, GitHub will send you a warning if you try to use anything other than Rouge.
 
 ```yaml
 markdown: kramdown

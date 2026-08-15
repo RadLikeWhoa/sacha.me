@@ -28,7 +28,7 @@ Assigning a value to a variable means that you take any kind of data (e.g. a str
 {% assign awesome = true %}
 
 {% if awesome %}
-  <p>Yay, awesome!</p>
+  <p>Hello, world!</p>
 {% endif %}
 ```
 
@@ -54,7 +54,7 @@ It should be clear by now that we'll have to capture the value as it's returned 
 {% endcapture %}
 ```
 
-Let's say we considered posts that are shorter than 250 words not worthy of getting the word count. A good example for this would be 'link list'-style post that consist of mostly a quote from the original article and a comment spanning a sentence or two. Ideally, this would be taken care of using a simple conditional block.
+Let's say we consider posts shorter than 250 words not worth displaying a word count for. A good example of this would be a 'link list'-style post that consists mostly of a quote from the original article and a comment spanning a sentence or two. Ideally, this would be handled using a simple conditional block.
 
 ```liquid
 {% if words > 250 %}
@@ -62,7 +62,7 @@ Let's say we considered posts that are shorter than 250 words not worthy of gett
 {% endif %}
 ```
 
-But you'll soon see that this won't work as intended as Jekyll will throw you this error an error saying you've attempted to compare a string (the words) with a number (250), which is entirely true, and also, sadly, entirely not possible. There is, however, a simple workaround.
+However, this won't work as intended, since Jekyll will throw an error saying you've attempted to compare a string (the word count) with a number (250), which is correct but not supported. There is, however, a simple workaround.
 
 ```liquid
 {% capture words %}
@@ -73,7 +73,7 @@ But you'll soon see that this won't work as intended as Jekyll will throw you th
 {% endunless %}
 ```
 
-You can use Liquid filters to substract your minimum number from the word count to see if it falls below 0. If it does it will contain a '-' at the beginning, which means the post is too short and won't get the word number displayed. If our variable doesn't contain a '-' we can simply add our minimum number back to the word count and display it. Quite simple, right?
+You can use Liquid filters to subtract your minimum number from the word count to see if it falls below 0. If it does, it will contain a '-' at the beginning, which means the post is too short and won't have its word count displayed. If our variable doesn't contain a '-', we can simply add our minimum number back to the word count and display it.
 
 ## Customising the output
 
@@ -83,11 +83,11 @@ Now that we finally have our word number along with the conditional to hide it f
 {{ words | plus: 250 | append: " words" }}
 ```
 
-The above snippet results in something like _'There are 250 words in this post'_. You can go crazy with filters, they offer lots of possibilities.
+The above snippet results in something like _'There are 250 words in this post'_. There are many filters available, offering a wide range of possibilities.
 
 ## Calculating the reading time
 
-You might have noticed that I display an estimated reading time on this blog instead of just a word count. Personally, I just think this is a more useful guideline. Doing this is as easy as putting the `divided_by` filter into our final word count construct. The number to divide by is arbitrary, but 180 is the avarage number of words a person reads per minute.
+You might have noticed that I display an estimated reading time on this blog instead of just a word count. Personally, I just think this is a more useful guideline. Doing this is as easy as putting the `divided_by` filter into our final word count construct. The number to divide by is arbitrary, but 180 is the average number of words a person reads per minute.
 
 ```liquid
 {{ words | plus: 250 | divided_by: 180 | append: " minutes to read" }}
