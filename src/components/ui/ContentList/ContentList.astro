@@ -33,7 +33,9 @@ const isProject = (
         <li>
           {isProject(item) ? (
             <ProjectTeaser
-              alternate={index % 2 === 0}               level="h2"               project={item}
+              alternate={index % 2 === 0}
+              level="h2"
+              project={item}
             />
           ) : (
             <ArticleTeaser
