@@ -7,7 +7,11 @@
     "pnpm": ">=11"
   },
   "devEngines": {
-    "runtime": { "name": "node", "version": "^24.0.0", "onFail": "download" }
+    "runtime": {
+      "name": "node",
+      "version": "^24.0.0",
+      "onFail": "download"
+    }
   },
   "packageManager": "pnpm@11.22.0",
   "scripts": {
@@ -35,7 +39,7 @@
     "@astrojs/check": "~0.9.10",
     "@eslint/js": "~10.0.1",
     "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0",
+    "@types/node": "~26.2.0",
     "eslint": "~10.8.0",
     "eslint-plugin-astro": "~3.1.0",
     "postcss-html": "~2.0.0",
