@@ -10,6 +10,7 @@
     "selector-pseudo-class-no-unknown": [
       true,
       { "ignorePseudoClasses": ["global"] }
-    ]
+    ],
+    "color-hex-length": "long"
   }
 }

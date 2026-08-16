@@ -13,8 +13,12 @@
     "astro": "astro",
     "format": "prettier . -c --write",
     "format:check": "prettier . -l",
-    "lint": "eslint src/**/*.{ts,astro} && stylelint src/**/*.{css,astro}",
-    "lint:fix": "eslint src/**/*.{ts,astro} --fix && stylelint src/**/*.{css,astro} --fix",
+    "lint:ts": "eslint src/**/*.{ts,astro}",
+    "lint:ts:fix": "pnpm lint:ts -- --fix",
+    "lint:css": "stylelint src/**/*.{css,astro}",
+    "lint:css:fix": "pnpm lint:css -- --fix",
+    "lint": "pnpm lint:ts && pnpm lint:css",
+    "lint:fix": "pnpm lint:ts:fix && pnpm lint:css:fix",
     "typecheck": "astro check"
   },
   "dependencies": {
