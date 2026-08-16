@@ -2,9 +2,9 @@ import { expect, test } from '@playwright/test';
 
 const items = [
   { name: 'Home', href: '/' },
-  { name: 'Projects', href: '/projects/' },
-  { name: 'Articles', href: '/articles/' },
   { name: 'About', href: '/about/' },
+  { name: 'Articles', href: '/articles/' },
+  { name: 'Projects', href: '/projects/' },
 ];
 
 test('has a logo linking to the home page', async ({ page }) => {

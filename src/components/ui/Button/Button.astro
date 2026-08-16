@@ -12,14 +12,12 @@ const elevationClass = `elevation-${elevation}`;
 {
   href ? (
     <a
-      href={href}
-      class={elevationClass}
-      data-astro-prefetch
+      class:list={elevationClass}       data-astro-prefetch       href={href}
     >
       <slot />
     </a>
   ) : (
-    <button class={elevationClass}>
+    <button class:list={elevationClass}>
       <slot />
     </button>
   )

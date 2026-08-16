@@ -21,19 +21,21 @@
     "astro": "astro",
     "format": "prettier . -c --write",
     "format:check": "prettier . -l",
-    "lint:ts": "eslint src/**/*.{ts,astro}",
-    "lint:ts:fix": "pnpm lint:ts -- --fix",
+    "lint:ts": "eslint src",
+    "lint:ts:fix": "pnpm lint:ts --fix",
     "lint:css": "stylelint src/**/*.{css,astro}",
-    "lint:css:fix": "pnpm lint:css -- --fix",
+    "lint:css:fix": "pnpm lint:css --fix",
     "lint": "pnpm lint:ts && pnpm lint:css",
     "lint:fix": "pnpm lint:ts:fix && pnpm lint:css:fix",
     "typecheck": "astro check",
     "test:e2e": "pnpm exec playwright test"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.2.2",
     "@astrojs/rss": "~4.0.19",
     "@astrojs/sitemap": "~3.7.3",
-    "astro": "~7.2.2"
+    "astro": "~7.2.2",
+    "rehype-external-links": "^3.0.0"
   },
   "devDependencies": {
     "@astrojs/check": "~0.9.10",

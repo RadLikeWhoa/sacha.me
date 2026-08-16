@@ -3,9 +3,9 @@ import test, { expect } from '@playwright/test';
 
 const items = [
   { name: 'Home', href: '/' },
-  { name: 'Projects', href: '/projects/' },
-  { name: 'Articles', href: '/articles/' },
   { name: 'About', href: '/about/' },
+  { name: 'Articles', href: '/articles/' },
+  { name: 'Projects', href: '/projects/' },
 ];
 
 for (const item of items) {

@@ -45,53 +45,40 @@ const jsonLdString = generateJsonLd({
 {
   noindex && (
     <meta
-      name="robots"
-      content="noindex, nofollow"
+      content="noindex, nofollow"       name="robots"
     />
   )
 }
 <meta
-  name="description"
-  content={resolvedDescription}
+  content={resolvedDescription}   name="description"
 />
 <link
-  rel="canonical"
-  href={canonicalURL}
+  href={canonicalURL}   rel="canonical"
 />
 <meta
-  property="og:type"
-  content={type === 'article' ? 'article' : 'website'}
+  content={type === 'article' ? 'article' : 'website'}   property="og:type"
 />
 <meta
-  property="og:url"
-  content={canonicalURL}
+  content={canonicalURL}   property="og:url"
 />
 <meta
-  property="og:title"
-  content={resolvedTitle}
+  content={resolvedTitle}   property="og:title"
 />
 <meta
-  property="og:description"
-  content={resolvedDescription}
+  content={resolvedDescription}   property="og:description"
 />
 <meta
-  name="twitter:card"
-  content="summary"
+  content="summary"   name="twitter:card"
 />
 <meta
-  name="twitter:url"
-  content={canonicalURL}
+  content={canonicalURL}   name="twitter:url"
 />
 <meta
-  name="twitter:title"
-  content={resolvedTitle}
+  content={resolvedTitle}   name="twitter:title"
 />
 <meta
-  name="twitter:description"
-  content={resolvedDescription}
+  content={resolvedDescription}   name="twitter:description"
 />
 <script
-  type="application/ld+json"
-  is:inline
-  set:html={jsonLdString}
+  is:inline   set:html={jsonLdString}   type="application/ld+json"
 />

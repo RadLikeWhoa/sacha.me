@@ -34,9 +34,7 @@ const {
 ---
 
 <Layout
-  seo={{ title, description: teaser, pubDate: date, type: 'project' }}
-  headerBackgroundColor={accent}
-  headerForegroundColor="light-dark(#fafafa, #161514)"
+  headerBackgroundColor={accent}   headerForegroundColor="light-dark(#fafafa, #161514)"   seo={{ title, description: teaser, pubDate: date, type: 'project' }}
 >
   <article>
     <header>
@@ -53,20 +51,15 @@ const {
           link ? (
             <a
               href={link}
-              target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer"               target="_blank"
             >
               <Image
-                src={hero}
-                alt={title}
-                loading="eager"
+                alt={title}                 loading="eager"                 src={hero}
               />
             </a>
           ) : (
             <Image
-              src={hero}
-              alt={title}
-              loading="eager"
+              alt={title}               loading="eager"               src={hero}
             />
           )
         }
@@ -84,8 +77,7 @@ const {
                 <dd>
                   <a
                     href={repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer"                     target="_blank"
                   >
                     {repo}
                   </a>
@@ -100,8 +92,7 @@ const {
                 <dd>
                   <a
                     href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener noreferrer"                     target="_blank"
                   >
                     {link}
                   </a>

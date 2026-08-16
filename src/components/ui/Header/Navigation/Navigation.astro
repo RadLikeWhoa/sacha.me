@@ -3,24 +3,17 @@ import Link from './Link/Link.astro';
 ---
 
 <button
-  type="button"
-  class="toggle"
-  id="nav-toggle"
-  aria-controls="site-nav"
-  aria-expanded="false"
-  aria-label="Navigation"
+  aria-controls="site-nav"   aria-expanded="false"   aria-label="Navigation"   class="toggle"   id="nav-toggle"   type="button"
 >
   <span
-    class="hamburger"
-    aria-hidden="true"
+    aria-hidden="true"     class="hamburger"
   ></span>
 </button>
 <nav id="site-nav">
   <ol>
     <li>
       <Link
-        href="/"
-        exact
+        exact         href="/"
       >
         Home
       </Link>
