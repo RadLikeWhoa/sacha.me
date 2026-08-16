@@ -6,6 +6,7 @@
     "node": ">=24",
     "pnpm": ">=11"
   },
+  "packageManager": "pnpm@11",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
