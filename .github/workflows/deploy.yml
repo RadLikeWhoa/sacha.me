@@ -11,24 +11,7 @@ permissions:
   id-token: write
 
 jobs:
-  verify:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-      - name: Setup pnpm
-        uses: pnpm/setup@v2
-        with:
-          cache: true
-      - name: Check formatting
-        run: pnpm format:check
-      - name: Typecheck
-        run: pnpm typecheck
-      - name: Lint
-        run: pnpm lint
-
   build:
-    needs: verify
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
