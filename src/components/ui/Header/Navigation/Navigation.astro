@@ -179,6 +179,10 @@ import Link from './Link/Link.astro';
       }
     }
 
+    &:not(:has(.active))::before {
+      content: none;
+    }
+
     &:has(a:is(:hover, :focus-visible)) {
       a {
         color: var(--header-foreground-color);
