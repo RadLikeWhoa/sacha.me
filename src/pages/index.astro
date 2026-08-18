@@ -69,7 +69,11 @@ const article = (await getCollection('articles'))
 <style>
   .section-intro,
   .section-articles {
-    padding-block: 4.5rem;
+    padding-block: 3rem;
+
+    @container main (inline-size >= 45rem) {
+      padding-block: 4.5rem;
+    }
   }
 
   .section-intro {

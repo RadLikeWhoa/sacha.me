@@ -21,8 +21,8 @@ import Navigation from './Navigation/Navigation.astro';
 
 <style>
   header {
-    padding-block-start: 3rem;
     background-color: var(--header-background-color, transparent);
+    container: header / inline-size;
   }
 
   .content {
@@ -31,6 +31,11 @@ import Navigation from './Navigation/Navigation.astro';
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
     gap: 1.5rem 0;
+    padding-block-start: 1.5rem;
+
+    @container header (inline-size >= 45rem) {
+      padding-block-start: 3rem;
+    }
   }
 
   a {

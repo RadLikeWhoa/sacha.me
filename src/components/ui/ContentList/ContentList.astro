@@ -55,7 +55,11 @@ const isProject = (
     flex-direction: column;
     gap: 1.5rem;
     container: content-list / inline-size;
-    padding-block: 4.5rem;
+    padding-block: 3rem;
+
+    @container main (inline-size >= 45rem) {
+      padding-block: 4.5rem;
+    }
   }
 
   ol {

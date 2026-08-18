@@ -137,7 +137,7 @@ const getLinkLabel = (link: string): string => {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    padding-block: 4.5rem;
+    padding-block: 3rem;
 
     :global(p > img) {
       display: block;
@@ -154,12 +154,16 @@ const getLinkLabel = (link: string): string => {
     :global(dd) {
       overflow-wrap: anywhere;
     }
+
+    @container main (inline-size >= 45rem) {
+      padding-block: 4.5rem;
+    }
   }
 
   header {
     display: flex;
     flex-direction: column;
-    padding-block: 4.5rem;
+    padding-block: 3rem;
     background-color: var(--header-background-color);
     gap: 0.5rem;
     color: var(--header-foreground-color);
@@ -175,6 +179,10 @@ const getLinkLabel = (link: string): string => {
     p {
       font-size: 1.3em;
       line-height: 1.54;
+    }
+
+    @container main (inline-size >= 45rem) {
+      padding-block: 4.5rem;
     }
   }
 

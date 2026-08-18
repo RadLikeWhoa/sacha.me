@@ -127,7 +127,7 @@ const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
   article {
     display: flex;
     flex-direction: column;
-    padding-block: 4.5rem;
+    padding-block: 3rem;
     gap: 1.5rem;
 
     :global(:is(h1, h2, h3)) {
@@ -136,6 +136,10 @@ const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
       &:first-child {
         margin-block-start: 0;
       }
+    }
+
+    @container main (inline-size >= 45rem) {
+      padding-block: 4.5rem;
     }
   }
 </style>
