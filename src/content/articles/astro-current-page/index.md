@@ -1,5 +1,5 @@
 ---
-title: 'Astro: Highlighting the current page'
+title: 'Highlighting the current page in Astro'
 date: 2026-08-17
 teaser: 'Highlighting the currently active page in a navigation is a quick win to help users orient themselves on a web site. Astro handles this differently than other frameworks, but still makes it easy to achieve this.'
 ---
