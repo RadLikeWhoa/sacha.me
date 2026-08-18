@@ -53,5 +53,11 @@ const elevationClass = `elevation-${elevation}`;
     @media (prefers-reduced-motion: no-preference) {
       transition: background-color 0.25s ease-in-out;
     }
+
+    @container teaser (inline-size <= 30rem) {
+      display: flex;
+      inline-size: fit-content;
+      text-align: start;
+    }
   }
 </style>
