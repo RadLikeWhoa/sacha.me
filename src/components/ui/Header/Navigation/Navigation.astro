@@ -175,12 +175,13 @@ import Link from './Link/Link.astro';
       @media (prefers-reduced-motion: no-preference) {
         transition:
           translate 0.25s ease-in-out,
-          background-color 0.25s ease-in-out;
+          background-color 0.25s ease-in-out,
+          opacity 0.25s ease-in-out;
       }
     }
 
-    &:not(:has(.active))::before {
-      content: none;
+    &:not(:has(.active, :hover, :focus-visible))::before {
+      opacity: 0;
     }
 
     &:has(a:is(:hover, :focus-visible)) {
