@@ -69,7 +69,11 @@ const article = (await getCollection('articles'))
 <style>
   .section-intro,
   .section-articles {
-    padding-block: 4.5rem;
+    padding-block: 3rem;
+
+    @container main (inline-size >= 45rem) {
+      padding-block: 4.5rem;
+    }
   }
 
   .section-intro {
@@ -92,18 +96,16 @@ const article = (await getCollection('articles'))
     }
   }
 
+  .section-projects {
+    container: teaser / inline-size;
+  }
+
   .projects {
-    container: projects / inline-size;
     display: flex;
     position: relative;
     flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
     padding-inline: 1.5rem;
-
-    > p {
-      text-align: center;
-    }
 
     &::before {
       content: '';
@@ -113,6 +115,11 @@ const article = (await getCollection('articles'))
       background-color: var(--widget-color);
       inset: 3rem 0 1.5rem;
       box-shadow: var(--shadow-elevation-low);
+    }
+
+    @container teaser (inline-size >= 30rem) {
+      align-items: center;
+      text-align: center;
     }
   }
 
@@ -125,7 +132,7 @@ const article = (await getCollection('articles'))
     list-style: none;
     gap: 1.5rem;
 
-    @container projects (min-inline-size: 30rem) {
+    @container teaser (inline-size >= 30rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
 
       li:first-child .icon-well {

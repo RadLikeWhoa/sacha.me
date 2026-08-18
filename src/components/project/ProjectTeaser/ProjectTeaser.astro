@@ -42,7 +42,7 @@ const {
     flex-direction: column;
     gap: 1.5rem;
 
-    @container content-list (min-inline-size: 30rem) {
+    @container content-list (inline-size >= 30rem) {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
 

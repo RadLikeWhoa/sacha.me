@@ -15,8 +15,8 @@ technologies:
   - Git
   - GitHub Pages
 accent: '#ee5e2f'
-link: https://sacha.me/SSGS/
 repo: https://github.com/RadLikeWhoa/SSGS
+link: https://radlikewhoa.github.io/SSGS/
 teaser: 'Grid systems are a fundamental part of design. They help create layouts, that follow conventions created by nature or man. However, in web design they used to be difficult to set up. Some years ago, people started creating so-called grid systems, pieces of CSS that could be used to create layouts that follow pre-defined grids.'
 hero: hero.png
 icon: icon.svg

@@ -29,6 +29,7 @@ const { cta, target } = Astro.props;
   section {
     position: relative;
     padding: 1.5rem 1.5rem 0;
+    container: teaser / inline-size;
 
     &::before {
       content: '';
@@ -45,10 +46,9 @@ const { cta, target } = Astro.props;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    align-items: center;
 
-    > p {
-      margin-block-end: 0;
+    @container teaser (inline-size >= 30rem) {
+      align-items: center;
       text-align: center;
     }
   }

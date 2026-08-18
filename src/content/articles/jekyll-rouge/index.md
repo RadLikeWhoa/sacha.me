@@ -1,5 +1,5 @@
 ---
-title: 'Syntax Highlighting in Jekyll With Rouge'
+title: 'Syntax highlighting in Jekyll with Rouge'
 date: 2015-01-15
 teaser: 'Many blogs on the web are centred around code so syntax highlighting in code blocks is useful to help readers better understand the displayed code. Jekyll offers easy ways to integrate highlighting into the build chain, for example using Rouge.'
 ---

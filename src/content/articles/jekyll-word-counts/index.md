@@ -1,5 +1,5 @@
 ---
-title: 'Word Counts and Reading Time in Jekyll'
+title: 'Word counts and reading time in jekyll'
 date: 2013-10-09
 teaser: "Jekyll makes it easy to display a post's word count or its reading time using no JavaScript whatsoever."
 ---
