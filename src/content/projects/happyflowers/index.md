@@ -31,7 +31,7 @@ technologies:
   - GPIO
 accent: '#4d8364'
 repo: https://github.com/RadLikeWhoa/happyflowers
-link: https://sacha.me/happyflowers/
+link: https://radlikewhoa.github.io/happyflowers/
 teaser: "happyflowers solves the problem of dried out household plants. A Raspberry Pi monitors a plant's moisture and automatically waters it, should it be needed. An elegant dashboard provides insights into the plant's health and helps owners get to know their plants better."
 hero: hero.png
 icon: icon.svg
