@@ -1,28 +1,36 @@
 ---
 import Logo from '@/assets/logo.svg';
-import Container from '../Container/Container.astro';
 import Navigation from './Navigation/Navigation.astro';
 ---
 
-<header>
-  <Container>
-    <div class="content">
-      <a
-        aria-label="Go to homepage"
-        data-astro-prefetch
-        href="/"
-      >
-        <Logo aria-hidden="true" />
-      </a>
-      <Navigation />
-    </div>
-  </Container>
+<header class="container">
+  <div class="content">
+    <a
+      aria-label="Go to homepage"
+      data-astro-prefetch
+      href="/"
+    >
+      <Logo aria-hidden="true" />
+    </a>
+    <Navigation />
+  </div>
 </header>
 
 <style>
   header {
-    background-color: var(--header-background-color, transparent);
+    position: relative;
     container: header / inline-size;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inline-size: 100dvw;
+      inset-inline-start: 50%;
+      translate: -50dvw 0;
+      inset-block: 0;
+      background-color: var(--header-background-color);
+    }
   }
 
   .content {

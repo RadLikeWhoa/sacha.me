@@ -1,6 +1,5 @@
 ---
 import ContactTeaser from '@/components/ui/ContactTeaser/ContactTeaser.astro';
-import Container from '@/components/ui/Container/Container.astro';
 import Layout from '@/layouts/Layout.astro';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
 
@@ -21,29 +20,27 @@ const { Content } = await render(article);
 ---
 
 <Layout seo={{ title, description: teaser, pubDate: date, type: 'article' }}>
-  <Container>
-    <article>
-      <header>
-        <h1>{title}</h1>
-        <time>
-          {
-            date.toLocaleDateString('en-UK', {
-              year: 'numeric',
-              month: 'long',
-              day: '2-digit',
-            })
-          }
-        </time>
-      </header>
-      <div class="content">
-        <Content />
-      </div>
-      <ContactTeaser
-        cta="Read more articles"
-        target="/articles/"
-      />
-    </article>
-  </Container>
+  <article>
+    <header>
+      <h1>{title}</h1>
+      <time>
+        {
+          date.toLocaleDateString('en-UK', {
+            year: 'numeric',
+            month: 'long',
+            day: '2-digit',
+          })
+        }
+      </time>
+    </header>
+    <div class="content">
+      <Content />
+    </div>
+    <ContactTeaser
+      cta="Read more articles"
+      target="/articles/"
+    />
+  </article>
 </Layout>
 
 <style>

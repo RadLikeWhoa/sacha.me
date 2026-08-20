@@ -73,6 +73,8 @@ if (headerForegroundColor) {
       :root {
         --border-radius: 10px;
 
+        --max-content-width: 80ch;
+
         --accent-color: light-dark(#00803e, #00e670);
         --background-color: light-dark(#fbf2e5, #161514);
         --header-background-color: var(--background-color);
@@ -219,6 +221,11 @@ if (headerForegroundColor) {
         clip-path: inset(50%);
       }
 
+      .container {
+        max-inline-size: min(var(--max-content-width), 100dvw - 3rem);
+        margin-inline: auto;
+      }
+
       main {
         container: main / inline-size;
       }
@@ -226,7 +233,7 @@ if (headerForegroundColor) {
   </head>
   <body style={cssProperties}>
     <Header />
-    <main>
+    <main class="container">
       <slot />
     </main>
     <Footer />

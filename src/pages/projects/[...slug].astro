@@ -1,6 +1,5 @@
 ---
 import ContactTeaser from '@/components/ui/ContactTeaser/ContactTeaser.astro';
-import Container from '@/components/ui/Container/Container.astro';
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { type CollectionEntry, getCollection, render } from 'astro:content';
@@ -51,91 +50,83 @@ const getLinkLabel = (link: string): string => {
 >
   <article>
     <header>
-      <Container>
-        <div class="header-content">
-          <h1 set:html={title} />
-          <p>{teaser}</p>
-        </div>
-      </Container>
+      <h1 set:html={title} />
+      <p>{teaser}</p>
     </header>
     <div class="hero-image">
-      <Container>
-        {
-          link ? (
-            <a
-              href={link}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <Image
-                alt={title}
-                loading="eager"
-                src={hero}
-              />
-            </a>
-          ) : (
+      {
+        link ? (
+          <a
+            href={link}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Image
               alt={title}
               loading="eager"
               src={hero}
             />
+          </a>
+        ) : (
+          <Image
+            alt={title}
+            loading="eager"
+            src={hero}
+          />
+        )
+      }
+    </div>
+    <div class="content">
+      <dl>
+        <dt>Year</dt>
+        <dd>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dd>
+        {
+          repo && (
+            <>
+              <dt>Repository</dt>
+              <dd>
+                <a
+                  href={repo}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {getLinkLabel(repo)}
+                </a>
+              </dd>
+            </>
           )
         }
-      </Container>
+        {
+          link && (
+            <>
+              <dt>URL</dt>
+              <dd>
+                <a
+                  href={link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {getLinkLabel(link)}
+                </a>
+              </dd>
+            </>
+          )
+        }
+        <dt>Tags</dt>
+        <dd>{tags.join(', ')}</dd>
+      </dl>
+      <Content />
+      <dl>
+        <dt>Tasks</dt>
+        <dd>{tasks.join(', ')}</dd>
+        <dt>Technologies</dt>
+        <dd>{technologies.join(', ')}</dd>
+      </dl>
+      <ContactTeaser
+        cta="Discover more projects"
+        target="/projects/"
+      />
     </div>
-    <Container>
-      <div class="content">
-        <dl>
-          <dt>Year</dt>
-          <dd>{date.toLocaleDateString('de-CH', { year: 'numeric' })}</dd>
-          {
-            repo && (
-              <>
-                <dt>Repository</dt>
-                <dd>
-                  <a
-                    href={repo}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {getLinkLabel(repo)}
-                  </a>
-                </dd>
-              </>
-            )
-          }
-          {
-            link && (
-              <>
-                <dt>URL</dt>
-                <dd>
-                  <a
-                    href={link}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    {getLinkLabel(link)}
-                  </a>
-                </dd>
-              </>
-            )
-          }
-          <dt>Tags</dt>
-          <dd>{tags.join(', ')}</dd>
-        </dl>
-        <Content />
-        <dl>
-          <dt>Tasks</dt>
-          <dd>{tasks.join(', ')}</dd>
-          <dt>Technologies</dt>
-          <dd>{technologies.join(', ')}</dd>
-        </dl>
-        <ContactTeaser
-          cta="Discover more projects"
-          target="/projects/"
-        />
-      </div>
-    </Container>
   </article>
 </Layout>
 
@@ -169,11 +160,11 @@ const getLinkLabel = (link: string): string => {
 
   header {
     display: flex;
+    position: relative;
     flex-direction: column;
     padding-block: 3rem;
-    background-color: var(--header-background-color);
-    gap: 0.5rem;
     color: var(--header-foreground-color);
+    gap: 3rem;
 
     h1 {
       padding-block-end: 0.5rem;
@@ -189,15 +180,20 @@ const getLinkLabel = (link: string): string => {
       line-height: 1.54;
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inline-size: 100dvw;
+      background-color: var(--header-background-color);
+      inset-inline-start: 50%;
+      translate: -50dvw 0;
+      inset-block: 0;
+    }
+
     @container main (inline-size >= 45rem) {
       padding-block: 4.5rem;
     }
-  }
-
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
   }
 
   .hero-image {
@@ -224,9 +220,11 @@ const getLinkLabel = (link: string): string => {
       position: absolute;
       z-index: -1;
       block-size: 4.5rem;
+      inset-inline-start: 50%;
+      translate: -50dvw 0;
+      inline-size: 100dvw;
       background-color: var(--header-background-color);
       inset-block-start: 0;
-      inset-inline: 0;
       box-shadow: var(--shadow-elevation-low);
     }
   }
