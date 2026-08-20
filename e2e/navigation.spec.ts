@@ -7,56 +7,64 @@ const items = [
   { name: 'Projects', href: '/projects/' },
 ];
 
-test('has a logo linking to the home page', async ({ page }) => {
-  await page.goto('/');
+test.describe('Desktop navigation', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.setViewportSize({ width: 1920, height: 1080 });
+  });
 
-  const logo = page.getByRole('link', { name: 'Go to homepage' });
+  test('has a logo linking to the home page', async ({ page }) => {
+    await page.goto('/');
 
-  await expect(logo).toBeVisible();
-  await expect(logo).toHaveAttribute('href', '/');
-});
+    const logo = page.getByRole('link', { name: 'Go to homepage' });
 
-test('has a navigation with 4 items', async ({ page }) => {
-  await page.goto('/');
+    await expect(logo).toBeVisible();
+    await expect(logo).toHaveAttribute('href', '/');
+  });
 
-  const nav = page.getByRole('navigation');
-  const links = nav.getByRole('link');
-
-  await expect(nav).toBeVisible();
-  await expect(links).toHaveCount(items.length);
-});
-
-for (const item of items) {
-  test(`marks "${item.name}" as active when navigating to it`, async ({
-    page,
-  }) => {
-    await page.goto(item.href, { waitUntil: 'networkidle' });
+  test('has a navigation with 4 items', async ({ page }) => {
+    await page.goto('/');
 
     const nav = page.getByRole('navigation');
+    const links = nav.getByRole('link');
 
-    await expect(nav.getByRole('link', { name: item.name })).toHaveAttribute(
-      'aria-current',
-      'page',
-    );
-
-    for (const other of items.filter((other) => other.name !== item.name)) {
-      await expect(
-        nav.getByRole('link', { name: other.name }),
-      ).not.toHaveAttribute('aria-current', 'page');
-    }
+    await expect(nav).toBeVisible();
+    await expect(links).toHaveCount(items.length);
   });
-}
 
-test('handles mobile navigation', async ({ page }) => {
-  await page.setViewportSize({ width: 480, height: 720 });
+  for (const item of items) {
+    test(`marks "${item.name}" as active when navigating to it`, async ({
+      page,
+    }) => {
+      await page.goto(item.href, { waitUntil: 'networkidle' });
 
-  await page.goto('/');
+      const nav = page.getByRole('navigation');
 
-  const toggle = page.getByRole('button', { name: /navigation/i });
+      await expect(nav.getByRole('link', { name: item.name })).toHaveAttribute(
+        'aria-current',
+        'page',
+      );
 
-  await expect(page.getByRole('navigation')).not.toBeVisible();
+      for (const other of items.filter((other) => other.name !== item.name)) {
+        await expect(
+          nav.getByRole('link', { name: other.name }),
+        ).not.toHaveAttribute('aria-current', 'page');
+      }
+    });
+  }
+});
 
-  await toggle.click();
+test.describe('Mobile navigation', () => {
+  test('handles mobile navigation', async ({ page }) => {
+    await page.setViewportSize({ width: 480, height: 720 });
 
-  await expect(page.getByRole('navigation')).toBeVisible();
+    await page.goto('/');
+
+    const toggle = page.getByRole('button', { name: /navigation/i });
+
+    await expect(page.getByRole('navigation')).not.toBeVisible();
+
+    await toggle.click();
+
+    await expect(page.getByRole('navigation')).toBeVisible();
+  });
 });
