@@ -10,6 +10,10 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:4321',
     trace: 'on-first-retry',
+    viewport: {
+      width: 1920,
+      height: 1080,
+    },
   },
   projects: [
     {
