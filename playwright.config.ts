@@ -1,5 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const viewport = {
+  width: 1920,
+  height: 1080,
+};
+
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -10,23 +15,29 @@ export default defineConfig({
   use: {
     baseURL: 'http://localhost:4321',
     trace: 'on-first-retry',
-    viewport: {
-      width: 1920,
-      height: 1080,
-    },
+    viewport,
   },
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport,
+      },
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        ...devices['Desktop Firefox'],
+        viewport,
+      },
     },
     {
       name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari'],
+        viewport,
+      },
     },
   ],
   webServer: {

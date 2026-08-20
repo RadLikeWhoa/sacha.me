@@ -46,3 +46,17 @@ for (const item of items) {
     }
   });
 }
+
+test('handles mobile navigation', async ({ page }) => {
+  await page.setViewportSize({ width: 480, height: 720 });
+
+  await page.goto('/');
+
+  const toggle = page.getByRole('button', { name: /navigation/i });
+
+  await expect(page.getByRole('navigation')).not.toBeVisible();
+
+  await toggle.click();
+
+  await expect(page.getByRole('navigation')).toBeVisible();
+});
