@@ -30,7 +30,7 @@ for (const item of items) {
   test(`marks "${item.name}" as active when navigating to it`, async ({
     page,
   }) => {
-    await page.goto(item.href);
+    await page.goto(item.href, { waitUntil: 'networkidle' });
 
     const nav = page.getByRole('navigation');
 
