@@ -22,12 +22,12 @@ for (const item of items) {
     ]);
 
     await page.emulateMedia({ colorScheme: 'light' });
-    await page.goto(item.href);
+    await page.goto(item.href, { waitUntil: 'networkidle' });
 
     expect((await axeBuilder.analyze()).violations).toEqual([]);
 
     await page.emulateMedia({ colorScheme: 'dark' });
-    await page.goto(item.href);
+    await page.goto(item.href, { waitUntil: 'networkidle' });
 
     expect((await axeBuilder.analyze()).violations).toEqual([]);
   });
