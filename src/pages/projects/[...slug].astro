@@ -32,6 +32,8 @@ const {
   accent,
 } = project.data;
 
+const formattedTitle = title.replace(/(&shy;)+/g, '');
+
 const getLinkLabel = (link: string): string => {
   return new URL(link).hostname;
 };
@@ -40,13 +42,18 @@ const getLinkLabel = (link: string): string => {
 <Layout
   headerBackgroundColor={accent}
   headerForegroundColor="light-dark(#fafafa, #161514)"
-  seo={{ title, description: teaser, pubDate: date, type: 'project' }}
+  seo={{
+    title: formattedTitle,
+    description: teaser,
+    pubDate: date,
+    type: 'project',
+  }}
 >
   <article>
     <header>
       <Container>
         <div class="header-content">
-          <h1>{title}</h1>
+          <h1 set:html={title} />
           <p>{teaser}</p>
         </div>
       </Container>
@@ -174,6 +181,7 @@ const getLinkLabel = (link: string): string => {
       line-height: 1.375;
       border-block-end: 5px solid;
       overflow-wrap: anywhere;
+      hyphens: auto;
     }
 
     p {

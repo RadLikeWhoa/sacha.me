@@ -26,9 +26,8 @@ const {
       <a
         data-astro-prefetch
         href={`/projects/${id}/`}
-      >
-        {title}
-      </a>
+        set:html={title}
+      />
     </Heading>
     <p>
       {teaser}

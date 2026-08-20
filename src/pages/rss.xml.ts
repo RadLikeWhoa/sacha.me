@@ -11,7 +11,7 @@ export const GET: APIRoute = async (context) => {
     site: context.site ?? 'https://sacha.me',
     items: articles.map((article) => ({
       link: `/articles/${article.id}/`,
-      title: article.data.title,
+      title: article.data.title.replace(/(&shy;)+/g, ''),
       description: article.data.teaser,
       pubDate: article.data.date,
     })),
