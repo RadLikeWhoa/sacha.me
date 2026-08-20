@@ -1,5 +1,5 @@
 ---
-title: Countable
+title: Count&shy;able
 date: 2013-03-01
 tags:
   - Web

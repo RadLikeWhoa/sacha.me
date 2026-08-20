@@ -1,5 +1,5 @@
 ---
-title: Wolfswood Companion
+title: Wolfs&shy;wood Com&shy;pan&shy;ion
 date: 2016-04-01
 tags:
   - Mobile
