@@ -6,7 +6,7 @@ interface Props {
 
 const { href, elevation } = Astro.props;
 
-const elevationClass = `elevation-${elevation}`;
+const elevationClass = elevation ? `elevation-${elevation}` : undefined;
 ---
 
 {

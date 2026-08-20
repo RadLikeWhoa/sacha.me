@@ -1,5 +1,4 @@
 ---
-import Container from '@/components/ui/Container/Container.astro';
 import ContentList from '@/components/ui/ContentList/ContentList.astro';
 import Layout from '@/layouts/Layout.astro';
 ---
@@ -10,10 +9,8 @@ import Layout from '@/layouts/Layout.astro';
     description: 'Read through my collection of articles.',
   }}
 >
-  <Container>
-    <ContentList
-      collection="articles"
-      title="Articles"
-    />
-  </Container>
+  <ContentList
+    collection="articles"
+    title="Articles"
+  />
 </Layout>

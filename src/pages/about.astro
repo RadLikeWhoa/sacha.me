@@ -1,5 +1,4 @@
 ---
-import Container from '@/components/ui/Container/Container.astro';
 import Layout from '@/layouts/Layout.astro';
 
 const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
@@ -11,116 +10,113 @@ const year = new Date().toLocaleDateString('de-CH', { year: 'numeric' });
     description: 'Read more about myself, my interests, and my qualifications.',
   }}
 >
-  <Container>
-    <article>
-      <h1 class="visually-hidden">About me</h1>
-      <p>
-        My name is Sacha Schmid. I'm a front-end developer from Switzerland,
-        interested in both user interface design and web development.
-      </p>
-      <p>
-        I graduated with a BSc in Computer Science from the <a
-          href="https://fhnw.ch/en/"
+  <article>
+    <h1 class="visually-hidden">About me</h1>
+    <p>
+      My name is Sacha Schmid. I'm a front-end developer from Switzerland,
+      interested in both user interface design and web development.
+    </p>
+    <p>
+      I graduated with a BSc in Computer Science from the <a
+        href="https://fhnw.ch/en/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        University of Applied Sciences and Arts Northwestern Switzerland
+      </a> (FHNW) in Brugg, Switzerland.
+    </p>
+    <dl>
+      <dt>Bachelor of Science FHNW in Computer Science</dt>
+      <dd>2017 – Specialisation in design and management</dd>
+      <dt>Federal Diploma of Vocational Education and Training</dt>
+      <dd>2013 – Specialisation in application development</dd>
+    </dl>
+    <p>
+      I have experience in various aspects of front-end development, gained
+      through work with companies and private clients as well as numerous
+      personal projects. Examples of this work are available on my <a
+        data-astro-prefetch
+        href="/projects/"
+      >
+        projects
+      </a> page.
+    </p>
+    <dl>
+      <dt>Topics</dt>
+      <dd>
+        UI design, UX design, interaction design, web development, iOS native
+        development, project management, software architecture
+      </dd>
+    </dl>
+    <p>
+      I stay current with the latest trends and the rapid evolution of languages
+      and tools, regularly applying new technologies in my projects. This
+      ongoing interest allows me to create websites and applications that build
+      on foundational design principles while using cutting-edge technology.
+    </p>
+    <dl>
+      <dt>Languages</dt>
+      <dd>HTML, CSS, JS, PHP, C#, Swift</dd>
+      <dt>Tools, Frameworks, Libraries</dt>
+      <dd>
+        <a
+          href="https://react.dev/"
           rel="noopener noreferrer"
           target="_blank"
         >
-          University of Applied Sciences and Arts Northwestern Switzerland
-        </a> (FHNW) in Brugg, Switzerland.
-      </p>
-      <dl>
-        <dt>Bachelor of Science FHNW in Computer Science</dt>
-        <dd>2017 – Specialisation in design and management</dd>
-        <dt>Federal Diploma of Vocational Education and Training</dt>
-        <dd>2013 – Specialisation in application development</dd>
-      </dl>
-      <p>
-        I have experience in various aspects of front-end development, gained
-        through work with companies and private clients as well as numerous
-        personal projects. Examples of this work are available on my <a
-          data-astro-prefetch
-          href="/projects/"
+          React
+        </a>, <a
+          href="https://angular.dev/"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          projects
-        </a> page.
-      </p>
-      <dl>
-        <dt>Topics</dt>
-        <dd>
-          UI design, UX design, interaction design, web development, iOS native
-          development, project management, software architecture
-        </dd>
-      </dl>
-      <p>
-        I stay current with the latest trends and the rapid evolution of
-        languages and tools, regularly applying new technologies in my projects.
-        This ongoing interest allows me to create websites and applications that
-        build on foundational design principles while using cutting-edge
-        technology.
-      </p>
-      <dl>
-        <dt>Languages</dt>
-        <dd>HTML, CSS, JS, PHP, C#, Swift</dd>
-        <dt>Tools, Frameworks, Libraries</dt>
-        <dd>
-          <a
-            href="https://react.dev/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            React
-          </a>, <a
-            href="https://angular.dev/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Angular
-          </a>, <a
-            href="https://nextjs.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Next.js
-          </a>, <a
-            href="https://astro.build/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Astro
-          </a>
-        </dd>
-      </dl>
-      <p>
-        Outside of web development, my interests include music, running, and
-        photography.
-      </p>
-      <h2>About this site</h2>
-      <p>
-        This site was created with <a
+          Angular
+        </a>, <a
+          href="https://nextjs.org/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Next.js
+        </a>, <a
           href="https://astro.build/"
           rel="noopener noreferrer"
           target="_blank"
         >
           Astro
-        </a>. It is hosted on <a
-          href="https://github.com/"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          GitHub Pages
-        </a>. You can also view <a
-          href="https://github.com/RadLikeWhoa/radlikewhoa.github.io"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          the site's source
-        </a>.
-      </p>
-      <p>
-        All content, unless otherwise noted, was created by Sacha Schmid.
-        Copyright © 2013 – {year}.
-      </p>
-    </article>
-  </Container>
+        </a>
+      </dd>
+    </dl>
+    <p>
+      Outside of web development, my interests include music, running, and
+      photography.
+    </p>
+    <h2>About this site</h2>
+    <p>
+      This site was created with <a
+        href="https://astro.build/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Astro
+      </a>. It is hosted on <a
+        href="https://github.com/"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        GitHub Pages
+      </a>. You can also view <a
+        href="https://github.com/RadLikeWhoa/radlikewhoa.github.io"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        the site's source
+      </a>.
+    </p>
+    <p>
+      All content, unless otherwise noted, was created by Sacha Schmid.
+      Copyright © 2013 – {year}.
+    </p>
+  </article>
 </Layout>
 
 <style>

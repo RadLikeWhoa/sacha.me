@@ -2,7 +2,6 @@
 import ArticleTeaser from '@/components/article/ArticleTeaser/ArticleTeaser.astro';
 import IconWell from '@/components/project/IconWell/IconWell.astro';
 import Button from '@/components/ui/Button/Button.astro';
-import Container from '@/components/ui/Container/Container.astro';
 import Layout from '@/layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
@@ -16,54 +15,52 @@ const article = (await getCollection('articles'))
 ---
 
 <Layout>
-  <Container>
-    <h1 class="visually-hidden">Sacha Schmid — Front-end developer</h1>
-    <section class="section-intro">
+  <h1 class="visually-hidden">Sacha Schmid — Front-end developer</h1>
+  <section class="section-intro">
+    <p>
+      I'm <b>Sacha</b>, a front-end developer and designer. I build websites and
+      applications using modern technologies and methodologies.
+    </p>
+  </section>
+  <section class="section-projects">
+    <div class="projects">
+      <ol class="projects-list">
+        {
+          projects.map((project) => (
+            <li>
+              <IconWell
+                elevation="high"
+                project={project}
+              />
+            </li>
+          ))
+        }
+      </ol>
       <p>
-        I'm <b>Sacha</b>, a front-end developer and designer. I build websites
-        and applications using modern technologies and methodologies.
+        This is a selection of my most recent projects. Detailed case studies
+        are available for each, or you can view a complete list of my past and
+        current work.
       </p>
-    </section>
-    <section class="section-projects">
-      <div class="projects">
-        <ol class="projects-list">
-          {
-            projects.map((project) => (
-              <li>
-                <IconWell
-                  elevation="high"
-                  project={project}
-                />
-              </li>
-            ))
-          }
-        </ol>
-        <p>
-          This is a selection of my most recent projects. Detailed case studies
-          are available for each, or you can view a complete list of my past and
-          current work.
-        </p>
-        <Button
-          elevation="high"
-          href="/projects/"
-        >
-          Discover more projects
-        </Button>
-      </div>
-    </section>
-    {
-      article && (
-        <section class="section-articles">
-          <h2 class="section-title">Latest article</h2>
-          <ArticleTeaser
-            article={article}
-            level="h3"
-          />
-          <Button href="/articles/">Read more articles</Button>
-        </section>
-      )
-    }
-  </Container>
+      <Button
+        elevation="high"
+        href="/projects/"
+      >
+        Discover more projects
+      </Button>
+    </div>
+  </section>
+  {
+    article && (
+      <section class="section-articles">
+        <h2 class="section-title">Latest article</h2>
+        <ArticleTeaser
+          article={article}
+          level="h3"
+        />
+        <Button href="/articles/">Read more articles</Button>
+      </section>
+    )
+  }
 </Layout>
 
 <style>

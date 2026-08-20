@@ -112,13 +112,13 @@ import Link from './Link/Link.astro';
       }
     }
 
-    @container header (inline-size >= 45rem) {
+    @container header (inline-size >= 30rem) {
       display: none;
     }
   }
 
   nav {
-    @container header (inline-size < 45rem) {
+    @container header (inline-size < 30rem) {
       grid-column: 1 / -1;
 
       .toggle[aria-expanded='false'] + & {
@@ -134,7 +134,7 @@ import Link from './Link/Link.astro';
       }
     }
 
-    @container header (inline-size >= 45rem) {
+    @container header (inline-size >= 30rem) {
       display: block;
       position: static;
       margin: 0;
@@ -167,7 +167,7 @@ import Link from './Link/Link.astro';
       inset-inline-start: 0;
       box-shadow: var(--shadow-elevation-low);
 
-      @container header (inline-size >= 45rem) {
+      @container header (inline-size >= 30rem) {
         block-size: 100%;
         inline-size: 25%;
       }
@@ -211,7 +211,7 @@ import Link from './Link/Link.astro';
     &:has(li:nth-child(2) a:is(:hover, :focus-visible))::before {
       translate: 100% 0;
 
-      @container header (inline-size < 45rem) {
+      @container header (inline-size < 30rem) {
         translate: 0 100%;
       }
     }
@@ -220,7 +220,7 @@ import Link from './Link/Link.astro';
     &:has(li:nth-child(3) a:is(:hover, :focus-visible))::before {
       translate: 200% 0;
 
-      @container header (inline-size < 45rem) {
+      @container header (inline-size < 30rem) {
         translate: 0 200%;
       }
     }
@@ -229,13 +229,13 @@ import Link from './Link/Link.astro';
     &:has(li:nth-child(4) a:is(:hover, :focus-visible))::before {
       translate: 300% 0;
 
-      @container header (inline-size < 45rem) {
+      @container header (inline-size < 30rem) {
         translate: 0 300%;
       }
     }
     /* stylelint-enable no-descending-specificity */
 
-    @container header (inline-size >= 45rem) {
+    @container header (inline-size >= 30rem) {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }

@@ -1,5 +1,4 @@
 ---
-import Container from '@/components/ui/Container/Container.astro';
 import ContentList from '@/components/ui/ContentList/ContentList.astro';
 import Layout from '@/layouts/Layout.astro';
 ---
@@ -11,10 +10,8 @@ import Layout from '@/layouts/Layout.astro';
       'Read detailed case studies on all of my past and current projects.',
   }}
 >
-  <Container>
-    <ContentList
-      collection="projects"
-      title="Projects"
-    />
-  </Container>
+  <ContentList
+    collection="projects"
+    title="Projects"
+  />
 </Layout>
