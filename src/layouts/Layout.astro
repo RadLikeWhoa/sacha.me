@@ -3,6 +3,7 @@ import SEO from '@/components/seo/SEO/SEO.astro';
 import Footer from '@/components/ui/Footer/Footer.astro';
 import Header from '@/components/ui/Header/Header.astro';
 import type { ComponentProps } from 'astro/types';
+import { Font } from 'astro:assets';
 import { SITE_METADATA } from '../consts';
 
 interface Props {
@@ -34,6 +35,8 @@ if (headerForegroundColor) {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <Font cssVariable="--font-nunito" />
+    <Font cssVariable="--font-montserrat" />
     <meta
       content="width=device-width, initial-scale=1"
       name="viewport"
@@ -110,12 +113,7 @@ if (headerForegroundColor) {
       }
 
       html {
-        font:
-          100%/1.5 Avenir Next,
-          Avenir,
-          Helvetica Neue,
-          Arial,
-          sans-serif;
+        font: 100%/1.5 var(--font-nunito);
 
         @media (min-width: 30rem) {
           font-size: 112.5%;
@@ -138,6 +136,10 @@ if (headerForegroundColor) {
 
       :is(h1, h2, h3, p, ul, ol, dl, pre) {
         margin-block: 0;
+      }
+
+      :is(h1, h2, h3) {
+        font-family: var(--font-montserrat);
       }
 
       h1 {
